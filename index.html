@@ -4,661 +4,515 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>97,000 So'mlik darsni olish</title>
-<meta name="theme-color" content="#F2F6FA">
+<meta name="theme-color" content="#0A1517">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #F2F6FA;
-    --paper-2: #E4ECF4;
-    --card: #FFFFFF;
-    --ink: #0D1B2E;
-    --ink-70: rgba(13, 27, 46, .72);
-    --ink-10: rgba(13, 27, 46, .10);
-    --green: #1559C7;
-    --green-dk: #0A3578;
-    --coral: #0E9AB0;
-    --coral-dk: #097487;
-    --sun: #CFE6F7;
-    --white: #fff;
-    --radius: 24px;
-    --serif: "Manrope", Arial, sans-serif;
-    --sans: "Manrope", Arial, sans-serif;
+    --dark: #0A1517;
+    --dark-2: #0F1E21;
+    --dark-3: #15292D;
+    --cream: #F3EFE6;
+    --cream-2: #E9E3D5;
+    --ink: #0D1A1C;
+    --lime: #C9F23E;
+    --lime-dk: #A9D01F;
+    --copper: #D99A5B;
+    --teal: #3DB8A8;
+    --line-d: rgba(255,255,255,.14);
+    --line-l: rgba(13,26,28,.16);
+    --muted-d: rgba(255,255,255,.66);
+    --muted-l: rgba(13,26,28,.66);
+    --serif: "Newsreader", Georgia, "Times New Roman", serif;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body {
-    font-family: var(--sans);
-    color: var(--ink);
-    background: var(--paper);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-  img { max-width: 100%; }
-  .container { max-width: 760px; margin: 0 auto; padding: 0 16px; }
-  section { padding: 72px 0; }
-  h2 {
-    font-family: var(--serif);
-    font-size: clamp(26px, 5vw, 40px);
-    font-weight: 700;
-    text-align: center;
-    line-height: 1.2;
-    letter-spacing: -.01em;
-    margin-bottom: 40px;
-  }
-  h2::after {
-    content: "";
-    display: block;
-    width: 64px; height: 5px;
-    border-radius: 5px;
-    background: var(--coral);
-    margin: 18px auto 0;
-  }
+  body { font-family: var(--serif); background: var(--cream); color: var(--ink); line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: hidden; font-size: 17px; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+  section { position: relative; }
+  .dark { background: var(--dark); color: #fff; }
+  .light { background: var(--cream); color: var(--ink); }
+  .sec { padding: 72px 0; }
+  h1, h2 { font-weight: 400; letter-spacing: -.015em; line-height: 1.08; }
+  h2 { font-size: clamp(32px, 4.4vw, 52px); }
+  .eyebrow { font-size: 12.5px; letter-spacing: .24em; text-transform: uppercase; font-weight: 500; color: var(--copper); margin-bottom: 18px; }
+  .sec-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px 48px; margin-bottom: 36px; }
+  .sec-head h2 { max-width: 640px; }
+  .sec-note { max-width: 250px; font-size: 15px; line-height: 1.45; color: var(--muted-l); padding-top: 8px; }
+  .dark .sec-note { color: var(--muted-d); }
 
-  /* ---------- CTA (knopka) ---------- */
-  .cta {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    gap: 16px;
-    min-width: 320px;
-    max-width: 100%;
-    padding: 8px 12px 8px 8px;
-    background: var(--coral);
-    border-radius: 18px;
-    color: var(--white);
-    text-decoration: none;
-    box-shadow: 0 14px 28px -10px rgba(14, 154, 176, .55);
-    transition: transform .15s, box-shadow .15s;
+  /* Tugma */
+  .btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--lime); color: #0B1A0A; text-decoration: none; border: 0; cursor: pointer;
+    font: 600 17px/1 var(--serif); padding: 15px 26px; border-radius: 999px;
+    transition: transform .2s, box-shadow .2s, background .2s;
   }
-  .cta:hover { transform: translateY(-2px); box-shadow: 0 18px 32px -10px rgba(14, 154, 176, .6); }
-  .cta:active { transform: translateY(5px); box-shadow: 0 6px 12px -6px rgba(14,154,176,.5); }
-  .cta-icon {
-    flex: 0 0 52px; width: 52px; height: 52px;
-    border-radius: 13px;
-    display: grid; place-items: center;
-    background: rgba(255,255,255,.2);
-  }
-  .cta-icon svg { stroke: var(--white); }
-  .cta-text { flex: 1; font-weight: 800; font-size: 18px; white-space: nowrap; }
-  .cta-text em { font-style: normal; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
-  .cta-arrow { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--white); transition: transform .2s; }
-  .cta-arrow svg { stroke: var(--coral-dk); }
-  .cta:hover .cta-arrow { transform: translateX(4px); }
+  .btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s; }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px -10px rgba(201,242,62,.7); }
+  .btn:hover svg { transform: translateX(4px); }
+  .btn-sm { padding: 11px 20px; font-size: 15px; }
+  .btn-lg { padding: 18px 34px; font-size: 19px; }
 
-  /* ---------- 1. HERO ---------- */
-  .hero {
-    position: relative;
-    isolation: isolate;
-    background: var(--paper);
-    padding: 48px 0 0;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: "";
-    position: absolute; z-index: -1;
-    right: -8%; top: 0; bottom: 0; width: 56%;
-    background: var(--green);
-    border-radius: 0 0 0 160px;
-  }
-  .hero-inner {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 16px;
-    display: grid;
-    grid-template-columns: 1.05fr .95fr;
-    grid-template-areas:
-      "badge badge"
-      "title img"
-      "cta   img";
-    column-gap: 40px;
-    align-items: center;
-  }
-  .badge {
-    grid-area: badge; justify-self: start; margin-bottom: 28px;
-    display: inline-flex; align-items: center; gap: 10px;
-    background: var(--sun);
-    color: var(--ink);
-    border-radius: 999px;
-    padding: 8px 18px 8px 10px;
-    font-size: 14px; font-weight: 800;
-    
-    box-shadow: 0 6px 16px -8px rgba(13,27,46,.35);
-  }
-  .badge-icon { width: 28px; height: 28px; border-radius: 50%; background: var(--green); display: grid; place-items: center; animation: wiggle 2.4s ease-in-out infinite; }
-  @keyframes wiggle { 0%, 100% { transform: rotate(0); } 10%, 30% { transform: rotate(-12deg); } 20%, 40% { transform: rotate(12deg); } 50% { transform: rotate(0); } }
-  .badge-sep { display: none; }
-  .badge-text em { font-style: normal; text-decoration: underline var(--coral); text-underline-offset: 4px; }
-  .hero h1 {
-    grid-area: title;
-    font-family: var(--serif);
-    font-size: clamp(30px, 4vw, 54px);
-    font-weight: 800;
-    line-height: 1.12;
-    letter-spacing: -.02em;
-    color: var(--ink);
-  }
-  .hero .cta { grid-area: cta; justify-self: start; margin-top: 40px; margin-bottom: 64px; }
-  .hero-visual { grid-area: img; align-self: end; position: relative; min-height: 300px; }
-  .hero-img { display: block; width: 100%; height: auto; max-height: 560px; object-fit: contain; object-position: center bottom; filter: drop-shadow(0 20px 30px rgba(0,0,0,.3)); }
-  @media (max-width: 820px) {
-    .hero { padding-top: 32px; }
-    .hero::before { width: 100%; right: 0; top: 52%; border-radius: 120px 0 0 0; }
-    .hero-inner { grid-template-columns: 1fr; grid-template-areas: "badge" "title" "cta" "img"; }
-    .hero .cta { margin-bottom: 8px; }
-    .hero-visual { min-height: 0; margin-top: 28px; }
-    .hero-img { max-width: 400px; margin: 0 auto; }
-  }
-  @media (max-width: 560px) { .badge { font-size: 12.5px; } }
+  /* ---------- HERO ---------- */
+  .hero { overflow: hidden; isolation: isolate; padding-bottom: 56px; }
+  .hero::before { content: ""; position: absolute; inset: 0; z-index: -2; background: radial-gradient(60% 80% at 82% 30%, rgba(61,184,168,.20), transparent 70%), radial-gradient(40% 50% at 70% 90%, rgba(217,154,91,.16), transparent 70%); }
+  .contours { position: absolute; z-index: -1; pointer-events: none; opacity: .55; }
+  .hero .contours { right: -6%; top: 0; width: 62%; height: 100%; }
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 0 0; }
+  .nav-links { flex: 1; display: flex; gap: 34px; padding-bottom: 18px; border-bottom: 1px solid var(--line-d); margin-right: 56px; font-size: 15px; }
+  .nav-links a { text-decoration: none; color: rgba(255,255,255,.88); }
+  .nav-links a:hover { color: var(--lime); }
+  .nav .btn { flex: none; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items: end; padding-top: 54px; }
+  .hero-copy { padding-bottom: 8px; }
+  .hero .eyebrow { color: rgba(255,255,255,.9); font-size: 11.5px; margin-bottom: 22px; }
+  .hero h1 { font-size: clamp(36px, 5.2vw, 66px); font-weight: 400; line-height: 1.04; max-width: 640px; }
+  .hero h1 em { font-style: normal; color: var(--copper); }
+  .hero-sub { margin-top: 24px; max-width: 520px; color: rgba(255,255,255,.8); font-size: 17px; line-height: 1.5; }
+  .hero .btn { margin-top: 28px; }
+  .feats { display: flex; gap: 36px; margin-top: 44px; flex-wrap: wrap; }
+  .feat { display: flex; align-items: center; gap: 12px; font-size: 14px; line-height: 1.3; color: rgba(255,255,255,.82); }
+  .feat i { flex: none; width: 36px; height: 36px; border: 1.3px solid var(--copper); border-radius: 8px; display: grid; place-items: center; color: var(--copper); }
+  .feat i svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .feat small { display: block; color: var(--muted-d); font-size: 13px; }
+  .hero-img { position: relative; align-self: end; }
+  .hero-img img { width: 100%; max-height: 640px; object-fit: contain; object-position: center bottom; filter: drop-shadow(0 24px 40px rgba(0,0,0,.5)); -webkit-mask-image: linear-gradient(180deg, #000 88%, transparent 100%); mask-image: linear-gradient(180deg, #000 88%, transparent 100%); }
 
-  /* ---------- 2. NATIJALAR ---------- */
-  .results { background: var(--paper-2); }
-  .results .container { max-width: 1200px; }
-  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; align-items: stretch; counter-reset: c; }
+  /* ---------- NATIJALAR ---------- */
+  .rcards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
   .rcard {
-    position: relative;
-    display: flex; flex-direction: column;
-    background: var(--card);
-    border: 1px solid rgba(13,27,46,.14);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 12px 28px -10px rgba(13,27,46,.28);
-    transition: transform .2s, box-shadow .2s;
-    counter-increment: c;
+    position: relative; overflow: hidden; border-radius: 10px; min-height: 240px;
+    background: var(--dark); color: #fff; padding: 20px 20px 74px;
+    display: flex; flex-direction: column; justify-content: flex-start;
+    isolation: isolate; transition: transform .25s;
   }
-  .rcard:hover { transform: translate(-3px, -3px); box-shadow: 0 15px 28px -10px rgba(13,27,46,.28); }
-  .rcard-img { display: block; width: 100%; height: auto; border-bottom: 1px solid rgba(13,27,46,.14); }
-  .rcard::before {
-    content: "0" counter(c);
-    position: absolute; top: 10px; left: 10px; z-index: 1;
-    font-family: var(--serif); font-weight: 800; font-size: 14px;
-    background: var(--sun); color: var(--ink);
-    border: 1px solid rgba(13,27,46,.14); border-radius: 999px; padding: 1px 10px;
-  }
-  .rcard-body { padding: 18px 18px 22px; }
-  .rcard-title { font-size: 15px; font-weight: 700; line-height: 1.45; }
-  .rcard-title em { font-style: normal; color: var(--green); background: linear-gradient(transparent 62%, rgba(14,154,176,.28) 62%); }
-  @media (max-width: 1080px) { .cards { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 700px) {
-    .cards {
-      display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 16px;
-      gap: 16px; margin: 0 -16px; padding: 6px 22px 22px; -webkit-overflow-scrolling: touch;
-    }
-    .rcard { flex: 0 0 78%; scroll-snap-align: start; }
-    .rcard:hover { transform: none; box-shadow: 0 12px 28px -10px rgba(13,27,46,.28); }
-    .rcard-title { font-size: 16px; }
-  }
+  .rcard:hover { transform: translateY(-4px); }
+  .rcard::before { content: ""; position: absolute; inset: 0; z-index: -2; background: var(--img) right bottom / cover no-repeat; opacity: .85; }
+  .rcard::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(100deg, rgba(10,21,23,.94) 28%, rgba(10,21,23,.35) 100%); }
+  .rnum { font-size: 14px; color: var(--copper); margin-bottom: 8px; }
+  .rtitle { font-size: 21px; line-height: 1.18; font-weight: 400; max-width: 210px; }
+  .rtitle em { font-style: normal; color: var(--lime); }
+  .rarrow { position: absolute; left: 20px; bottom: 20px; width: 38px; height: 38px; border: 1.3px solid var(--copper); border-radius: 50%; display: grid; place-items: center; color: var(--copper); transition: background .2s, color .2s; }
+  .rarrow svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .rcard:hover .rarrow { background: var(--copper); color: var(--dark); }
 
-  /* ---------- Noutbuk maketi ---------- */
-  .demo { background: var(--paper); padding: 72px 0 40px; position: relative; }
-  .demo .container { max-width: 1240px; position: relative; }
-  .demo-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; }
-  .macbook { width: 100%; max-width: 700px; justify-self: start; filter: drop-shadow(0 30px 30px rgba(13,27,46,.3)); }
-  .mb-lid {
-    position: relative; background: #14202e; border: 2px solid #3a4656;
-    border-radius: 16px 16px 6px 6px; padding: 3.4% 3.4% 4.2%;
-  }
-  .mb-cam { position: absolute; top: 1.5%; left: 50%; width: 7px; height: 7px; margin-left: -3.5px; border-radius: 50%; background: radial-gradient(circle, #4a5a6e, #14202e 70%); }
-  .mb-screen { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-radius: 4px; background: #000; }
-  .mb-screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .mb-screen::after { content: ""; position: absolute; inset: 0; background: linear-gradient(125deg, rgba(255,255,255,.12), transparent 38%); pointer-events: none; }
-  .mb-base {
-    position: relative; height: 16px; width: 112%; margin-left: -6%;
-    background: linear-gradient(180deg, #d9d4c9 0%, #aaa59a 60%, #7d7970 100%);
-    border-radius: 2px 2px 18px 18px / 2px 2px 14px 14px;
-  }
-  .mb-base::after { content: ""; position: absolute; top: 0; left: 50%; width: 16%; height: 6px; margin-left: -8%; background: #8c887e; border-radius: 0 0 10px 10px; }
-  .demo-side { background: var(--card); border: 1px solid rgba(13,27,46,.14); border-radius: 24px; padding: 30px 28px; box-shadow: 0 14px 28px -10px rgba(13,27,46,.28); }
-  .demo-side h3 { font-family: var(--serif); font-size: clamp(26px, 3vw, 34px); font-weight: 700; margin-bottom: 20px; }
-  .demo-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
-  .demo-list li { display: flex; gap: 14px; align-items: flex-start; font-size: 16.5px; line-height: 1.5; }
-  .demo-list .chk { flex: 0 0 28px; height: 28px; border-radius: 8px; background: var(--green); display: grid; place-items: center; margin-top: 1px; }
-  .story-title { margin: 96px 0 0; }
-  .story { max-width: 760px; margin: 40px auto 0; font-size: clamp(18px, 2vw, 23px); line-height: 1.65; }
-  .story p + p { margin-top: 22px; }
-  .story .hl {
-    font-family: var(--serif); font-weight: 700;
-    font-size: clamp(22px, 2.6vw, 30px); line-height: 1.35;
-    background: var(--green); color: var(--white);
-    border-radius: 24px; padding: 26px 30px;
-    
-    box-shadow: 0 14px 28px -10px rgba(13,27,46,.28);
-  }
-  .now-link {
-    display: block; max-width: 760px; margin: 44px auto 0; text-align: center;
-    background: var(--green); color: #fff; text-decoration: none;
-    border: 1px solid rgba(13,27,46,.14); border-radius: 28px; padding: 28px 20px;
-    box-shadow: 0 14px 28px -10px rgba(13,27,46,.28);
-    transition: transform .2s, box-shadow .2s;
-  }
-  .now-link:hover { transform: translate(-3px, -3px); box-shadow: 0 17px 28px -10px rgba(13,27,46,.28); }
-  .now-label { font-size: 17px; font-weight: 700; }
-  .now-price { display: block; font-family: var(--serif); font-size: clamp(42px, 11vw, 68px); font-weight: 800; line-height: 1.1; letter-spacing: -.02em; margin-top: 4px; }
-  @media (max-width: 900px) {
-    .demo-grid { grid-template-columns: 1fr; }
-    .demo-side { max-width: 560px; margin: 8px auto 0; }
-    .macbook { max-width: 520px; justify-self: center; }
-    .mb-base { width: 108%; margin-left: -4%; }
-  }
+  /* ---------- BONUS DARS ---------- */
+  .bonus { overflow: hidden; isolation: isolate; padding: 84px 0; }
+  .bonus .contours { left: -8%; bottom: -10%; width: 70%; height: 80%; opacity: .5; }
+  .bonus-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 56px; align-items: center; }
+  .bonus h2 { font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px; max-width: 480px; }
+  .bonus p { color: var(--muted-d); max-width: 400px; font-size: 16px; }
+  .blist { list-style: none; border-top: 1px solid var(--line-d); }
+  .blist li { display: flex; align-items: center; gap: 20px; padding: 14px 0; border-bottom: 1px solid var(--line-d); }
+  .blist .n { flex: 0 0 26px; font-size: 14px; color: var(--copper); }
+  .blist .t { flex: 0 0 62px; height: 52px; border-radius: 5px; background: var(--img) center / cover; border: 1px solid var(--line-d); }
+  .blist .s { font-size: 16.5px; line-height: 1.3; color: rgba(255,255,255,.92); }
 
-  /* ---------- Uch variant ---------- */
-  .paths { background: var(--green); color: var(--white); padding: 80px 0; border-radius: 40px 40px 0 0; }
-  .paths .container { max-width: 1240px; }
-  .paths h2 { color: var(--white); }
-  .paths h2::after { background: var(--coral); }
-  .tri-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
-  .tri {
-    position: relative; overflow: hidden;
-    display: flex; flex-direction: column;
-    border-radius: 28px; padding: 26px 22px 26px;
-    background: var(--green-dk);
-    border: 2px solid rgba(255,255,255,.18);
-    transition: transform .3s;
-  }
-  .tri:hover { transform: translateY(-5px); }
-  .tri::before {
-    content: ""; position: absolute; left: 50%; top: 42%; width: 80%; aspect-ratio: 1; transform: translate(-50%, -50%);
-    border-radius: 50%; background: radial-gradient(circle, rgba(120,190,255,.3), transparent 68%);
-  }
-  .tri-3 { background: #fff; color: var(--ink); border-color: var(--ink); box-shadow: 0 14px 28px -10px rgba(13,27,46,.28); }
-  .tri-3::before { background: radial-gradient(circle, rgba(255,255,255,.55), transparent 68%); }
-  .tri-cut-img { position: relative; flex: 1; display: grid; place-items: center; min-height: 320px; }
-  .tri-cut-img img { width: 100%; max-height: 350px; object-fit: contain; filter: drop-shadow(0 20px 22px rgba(0,0,0,.4)); transition: transform .5s cubic-bezier(.22,1,.36,1); }
-  .tri:hover .tri-cut-img img { transform: scale(1.06) rotate(-2deg); }
-  .tri-cap { position: relative; margin-top: auto; padding-top: 18px; font-family: var(--serif); font-size: clamp(19px, 1.8vw, 23px); font-weight: 700; line-height: 1.3; text-align: center; }
-  @media (max-width: 1000px) { .tri-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; gap: 20px; } }
+  /* ---------- NARX ---------- */
+  .why { padding: 0; overflow: hidden; }
+  .why-grid { display: grid; grid-template-columns: 1.05fr .95fr; min-height: 340px; }
+  .why-copy { padding: 62px 28px 62px max(28px, calc((100vw - 1180px) / 2 + 28px)); position: relative; z-index: 2; }
+  .why h2 { font-size: clamp(34px, 4vw, 48px); margin-bottom: 20px; }
+  .why p { max-width: 460px; font-size: 16px; color: var(--muted-l); }
+  .why p + p { margin-top: 12px; }
+  .why .btn { margin-top: 28px; background: var(--lime); }
+  .why-img { position: relative; background: radial-gradient(70% 90% at 60% 40%, #2b4a4e, var(--dark) 75%); overflow: hidden; }
+  .why-img img { position: absolute; right: 0; bottom: 0; height: 108%; width: auto; max-width: none; object-fit: contain; filter: brightness(.55) saturate(.7) contrast(1.1); -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 30%); mask-image: linear-gradient(90deg, transparent 0, #000 30%); }
+  .why-img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--cream) 0%, transparent 38%); }
+  .why-quote { position: absolute; z-index: 2; right: max(28px, calc((100vw - 1180px) / 2 + 28px)); top: 50%; transform: translateY(-50%); max-width: 210px; font-size: 15.5px; line-height: 1.45; color: #fff; }
+  .why-quote::before { content: ""; display: block; width: 28px; height: 2px; background: var(--copper); margin-bottom: 12px; }
 
-  /* ---------- 3. KRUJOKLAR ---------- */
-  .students { background: var(--paper); padding-bottom: 96px; }
-  .students .container { max-width: 1440px; }
-  .circles { display: flex; align-items: center; gap: 16px; }
-  .circle { flex: 1 1 0; min-width: 0; }
-  .circle.expanded { flex-grow: 2.4; z-index: 3; }
-  @media (max-width: 1240px) {
-    .circles { overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-left: 16px; margin: 0 -16px; padding: 8px 16px 14px; -webkit-overflow-scrolling: touch; }
-    .circle { flex: 0 0 210px; scroll-snap-align: start; }
-    .circle.expanded { flex-basis: 420px; }
-  }
-  .circle {
-    position: relative; aspect-ratio: 1 / 1; border-radius: 50%; padding: 5px;
-    background: conic-gradient(var(--coral), var(--sun), var(--green), var(--coral));
-    cursor: pointer;
-    transition: flex-grow .9s cubic-bezier(.65,0,.35,1), flex-basis .9s cubic-bezier(.65,0,.35,1), box-shadow .6s ease, transform .3s ease;
-    will-change: flex-grow, flex-basis;
-  }
-  .circle:hover { transform: scale(1.03); }
-  .circle.expanded:hover { transform: none; }
-  .circle-inner { position: relative; width: 100%; height: 100%; border-radius: 50%; overflow: hidden; border: 4px solid var(--paper); background: var(--green-dk); }
-  .circle video { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .kp { position: absolute; inset: 0; }
-  .circle iframe { position: absolute !important; inset: 0; width: 100% !important; height: 100% !important; border: 0; display: block; }
-  .circle.embed { box-shadow: 0 14px 30px -14px var(--ink); }
-  .circle.embed:not(.big)::after { content: ""; position: absolute; inset: 0; border-radius: 50%; z-index: 2; }
-  .circle.expanded { cursor: default; box-shadow: 0 24px 50px -16px var(--ink); }
-  .circle.expanded::after { display: none; }
-  .circle .play { position: absolute; inset: 0; display: grid; place-items: center; transition: opacity .2s; pointer-events: none; }
-  .circle .play span { width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,.25); border: 1px solid rgba(255,255,255,.6); display: grid; place-items: center; }
-  .circle.playing .play { opacity: 0; }
-  .circle.playing { animation: spin 3s linear infinite; }
-  .circle.playing .circle-inner { animation: spin 3s linear infinite reverse; }
-  @keyframes spin { to { transform: rotate(360deg); } }
+  /* ---------- 97 000 EVAZIGA ---------- */
+  .worth { padding: 64px 0 72px; }
+  .worth .sec-head { margin-bottom: 30px; }
+  .worth h2 em { font-style: normal; color: var(--copper); }
+  .wgrid { display: grid; grid-template-columns: 1fr 1fr 28px 1.2fr; gap: 18px; align-items: stretch; }
+  .wcard { position: relative; overflow: hidden; border: 1px solid var(--line-d); border-radius: 10px; background: linear-gradient(160deg, #11262a, #0b1a1d); padding: 18px 20px 18px; min-height: 170px; display: flex; flex-direction: column; justify-content: flex-end; transition: transform .3s; }
+  .wcard:hover { transform: translateY(-4px); }
+  .wcard img { position: absolute; right: 6px; top: 6px; width: 62%; height: 112%; object-fit: contain; object-position: right top; filter: drop-shadow(0 12px 16px rgba(0,0,0,.5)); }
+  .wcard h3 { position: relative; font-size: 20px; font-weight: 500; }
+  .wcard small { position: relative; display: block; font-size: 14px; color: var(--copper); margin-top: 2px; }
+  .wcard-hl { border-color: rgba(201,242,62,.55); background: linear-gradient(160deg, #123036, #0b1a1d); }
+  .wcard-hl img { width: 66%; height: 118%; right: 0; top: -4px; }
+  .weq { align-self: center; justify-self: center; font-size: 34px; color: rgba(255,255,255,.85); }
 
-  /* ---------- 4. STORY END ---------- */
-  .stack { background: var(--ink); color: var(--paper); padding: 72px 0; border-radius: 40px 40px 0 0; }
-  .stack .container { max-width: 1240px; }
-  .stack .story { margin-top: 0; color: var(--paper); }
-  .story-end { font-weight: 600; }
+  /* ---------- O'QUVCHILAR ---------- */
+  .voices .sec-note { max-width: 150px; }
+  .vwrap { position: relative; }
+  .vtrack { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 4px 2px 8px; scrollbar-width: none; }
+  .vtrack::-webkit-scrollbar { display: none; }
+  .vcard { flex: 0 0 calc((100% - 36px) / 3); scroll-snap-align: start; }
+  .vframe { position: relative; aspect-ratio: 16 / 9; border-radius: 6px; overflow: hidden; background: #0e1b1d; border: 1px solid var(--line-l); }
+  .vframe iframe { position: absolute !important; inset: 0; width: 100% !important; height: 100% !important; border: 0; }
+  .vnav { position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line-l); background: var(--cream); color: var(--ink); cursor: pointer; display: grid; place-items: center; z-index: 2; box-shadow: 0 4px 12px -4px rgba(0,0,0,.3); }
+  .vnav:hover { background: var(--lime); }
+  .vnav svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .vnav.prev { left: -17px; } .vnav.next { right: -17px; }
 
   /* ---------- FAQ ---------- */
-  .faq { background: var(--paper-2); padding: 80px 0 48px; }
-  .faq .container { max-width: 820px; }
-  .faq-list { display: flex; flex-direction: column; gap: 14px; }
-  .faq-item { overflow: hidden; background: var(--card); border: 1px solid rgba(13,27,46,.14); border-radius: 18px; transition: box-shadow .3s, background .3s; }
-  .faq-item.is-open { box-shadow: 0 12px 28px -10px rgba(13,27,46,.28); }
-  .faq-item summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 20px 22px; font-size: 18px; font-weight: 700; line-height: 1.4; }
+  .faq { overflow: hidden; isolation: isolate; padding: 72px 0 80px; }
+  .faq .contours { left: -6%; top: 10%; width: 40%; height: 90%; opacity: .5; }
+  .faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 40px; align-items: start; }
+  .faq h2 { font-size: clamp(32px, 4vw, 46px); }
+  .faq-q { font-size: 190px; line-height: 1; color: transparent; -webkit-text-stroke: 2px var(--copper); margin-top: 36px; opacity: .55; font-weight: 300; }
+  .faq-list { border-top: 1px solid var(--line-d); }
+  .faq-item { border-bottom: 1px solid var(--line-d); overflow: hidden; }
+  .faq-item summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 22px; padding: 20px 4px; font-size: 18px; }
   .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-ico { position: relative; flex: 0 0 34px; height: 34px; border-radius: 10px; background: var(--sun); border: 1px solid rgba(13,27,46,.14); transition: transform .5s cubic-bezier(.22,1,.36,1), background .3s; }
-  .faq-ico::before, .faq-ico::after { content: ""; position: absolute; left: 50%; top: 50%; width: 14px; height: 2.5px; margin: -1px 0 0 -7px; background: var(--ink); border-radius: 2px; transition: transform .35s; }
-  .faq-ico::after { transform: rotate(90deg); }
-  .faq-item.is-open .faq-ico { background: var(--coral); transform: rotate(180deg); }
-  .faq-item.is-open .faq-ico::after { transform: rotate(0deg); }
-  .faq-a { padding: 0 22px 24px; color: var(--ink-70); font-size: 16.5px; line-height: 1.7; }
-  @media (max-width: 560px) { .faq { padding: 56px 0 24px; } .faq-item summary { font-size: 16.5px; padding: 16px 18px; } .faq-a { padding: 0 18px 20px; font-size: 15.5px; } }
+  .faq-n { flex: 0 0 28px; font-size: 14px; color: var(--copper); }
+  .faq-t { flex: 1; }
+  .faq-ico { flex: none; width: 18px; height: 18px; position: relative; transition: transform .4s; }
+  .faq-ico::before { content: ""; position: absolute; left: 3px; top: 3px; width: 9px; height: 9px; border-right: 1.6px solid #fff; border-bottom: 1.6px solid #fff; transform: rotate(45deg); }
+  .faq-item.is-open .faq-ico { transform: rotate(180deg); }
+  .faq-item.is-open .faq-t { color: var(--lime); }
+  .faq-a { padding: 0 4px 22px 54px; color: var(--muted-d); font-size: 16px; line-height: 1.6; max-width: 640px; }
 
-  /* ---------- Ro'yxatdan o'tish ---------- */
-  .final { background: var(--paper-2); padding: 40px 0 100px; position: relative; }
-  .reg-wrap { max-width: 1100px; }
-  .reg-head { display: flex; align-items: center; justify-content: space-between; gap: 20px 32px; flex-wrap: wrap; margin-bottom: 36px; }
-  .reg-title { text-align: left; margin: 0; }
-  .reg-title::after { margin-left: 0; }
-  .timer { display: flex; align-items: center; gap: 14px; color: var(--ink-70); font-size: 15px; font-weight: 600; }
-  .timer b {
-    min-width: 96px; text-align: center; font-family: var(--serif);
-    font-size: 28px; font-weight: 800; font-variant-numeric: tabular-nums;
-    color: var(--white); background: var(--ink); border-radius: 14px; padding: 6px 16px;
-    box-shadow: 0 8px 18px -8px rgba(14,154,176,.8);
-  }
-  .reg-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: stretch; }
-  .reg-steps { display: flex; flex-direction: column; gap: 16px; }
-  .step { background: var(--card); border: 1px solid rgba(13,27,46,.14); border-radius: 22px; padding: 22px 24px; font-size: 16.5px; box-shadow: 0 12px 28px -10px rgba(13,27,46,.28); }
-  .reg-steps .step { flex: 1; }
-  .step em { font-style: normal; font-weight: 800; color: var(--coral-dk); }
-  .pay { margin-top: 16px; background: var(--green); color: var(--white); border-radius: 18px; padding: 20px 22px; }
-  .pay-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
-  .pay-num { font-family: var(--serif); font-size: clamp(18px, 5.2vw, 29px); font-weight: 700; white-space: nowrap; letter-spacing: .03em; font-variant-numeric: tabular-nums; }
-  .pay-name { margin-top: 10px; font-weight: 600; opacity: .8; }
-  .copy {
-    font: inherit; font-size: 14px; font-weight: 800; color: var(--ink);
-    background: var(--sun); border: 1px solid rgba(13,27,46,.14); border-radius: 12px; padding: 8px 16px; cursor: pointer;
-    box-shadow: 0 9px 28px -10px rgba(13,27,46,.28); transition: transform .15s, box-shadow .15s;
-  }
-  .copy:hover { transform: translate(-1px, -1px); box-shadow: 0 10px 28px -10px rgba(13,27,46,.28); }
-  .copy:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--ink); }
-  .copy.done { background: var(--white); }
-  .reg-form { display: flex; flex-direction: column; justify-content: center; gap: 22px; background: #fff; border: 1px solid rgba(13,27,46,.14); border-radius: 22px; padding: 28px 26px; box-shadow: 0 12px 28px -10px rgba(13,27,46,.28); }
-  .up-label { font-size: 17px; font-weight: 600; }
-  .cta-tg { width: 100%; min-width: 0; }
-  .tg-ico { flex: 0 0 52px; width: 52px; height: 52px; border-radius: 13px; display: grid; place-items: center; background: rgba(255,255,255,.2); }
-  .tg-arrow { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--white); color: var(--coral-dk); transition: transform .2s; }
-  .cta-tg:hover .tg-arrow { transform: translateX(4px); }
-  @media (max-width: 860px) { .reg-grid { grid-template-columns: minmax(0, 1fr); } .reg-head { flex-direction: column; align-items: flex-start; } }
-  @media (max-width: 560px) {
-    .final { padding: 32px 0 80px; }
-    .reg-form { padding: 22px 18px; }
-    .step { padding: 18px; font-size: 16px; }
-    .timer { flex-wrap: wrap; }
-    .cta-tg .cta-text { font-size: 16px; }
-  }
+  /* ---------- RO'YXATDAN O'TISH ---------- */
+  .reg { padding: 64px 0 90px; }
+  .reg-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px 40px; flex-wrap: wrap; margin-bottom: 40px; }
+  .reg-top h2 { font-size: clamp(32px, 4.2vw, 48px); }
+  .reg-right { text-align: right; }
+  .reg-right p { font-size: 15px; color: var(--muted-l); margin-bottom: 10px; }
+  .timer { display: inline-flex; align-items: center; gap: 12px; font-size: 14.5px; color: var(--muted-l); }
+  .timer b { font-weight: 600; font-size: 24px; min-width: 84px; text-align: center; font-variant-numeric: tabular-nums; background: var(--dark); color: var(--lime); border-radius: 8px; padding: 4px 14px; }
+  .steps { display: grid; grid-template-columns: 1fr 70px 1fr 70px 1fr 1.2fr; align-items: center; gap: 0; }
+  .step { text-align: center; padding: 0 8px; }
+  .step .ic { width: 70px; height: 70px; margin: 0 auto 14px; border: 1.3px solid var(--copper); border-radius: 50%; display: grid; place-items: center; color: var(--copper); }
+  .step .ic svg { width: 28px; height: 28px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .step .sn { font-size: 14px; color: var(--copper); }
+  .step .st { font-size: 18px; line-height: 1.25; font-weight: 500; margin-top: 2px; }
+  .step .st em { font-style: normal; }
+  .sarrow { height: 1px; background: repeating-linear-gradient(90deg, var(--ink) 0 4px, transparent 4px 8px); opacity: .35; margin: 0 6px 60px; }
+  .step-cta { text-align: center; padding-left: 24px; }
+  .step-cta .btn { width: 100%; justify-content: center; }
+  .step-cta small { display: block; font-size: 13px; color: var(--muted-l); margin-top: 12px; line-height: 1.35; }
+  .pay { margin-top: 44px; display: flex; align-items: center; justify-content: space-between; gap: 16px 28px; flex-wrap: wrap; background: var(--dark); color: #fff; border-radius: 12px; padding: 22px 28px; position: relative; overflow: hidden; }
+  .pay::before { content: ""; position: absolute; right: -40px; top: -60px; width: 260px; height: 260px; border-radius: 50%; border: 1px solid rgba(217,154,91,.35); box-shadow: 0 0 0 26px rgba(217,154,91,.06), 0 0 0 54px rgba(217,154,91,.04); }
+  .pay-l small { display: block; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--copper); margin-bottom: 4px; }
+  .pay-num { font-size: clamp(24px, 4vw, 38px); letter-spacing: .06em; font-variant-numeric: tabular-nums; }
+  .pay-name { font-size: 15px; color: var(--muted-d); margin-top: 2px; }
+  .copy { position: relative; font: 600 15px/1 var(--serif); color: var(--dark); background: var(--lime); border: 0; border-radius: 999px; padding: 13px 24px; cursor: pointer; transition: transform .2s; }
+  .copy:hover { transform: translateY(-2px); }
+  .copy.done { background: #fff; }
 
-  /* ---------- Mobil sticky CTA ---------- */
-  .sticky {
-    position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 50;
-    display: none; align-items: center; justify-content: space-between; gap: 12px;
-    background: var(--ink); border-radius: 18px; padding: 8px 8px 8px 20px; color: var(--paper);
-    box-shadow: 0 12px 30px -8px rgba(13,27,46,.6);
-    transform: translateY(140%); transition: transform .35s ease;
-  }
+  /* ---------- Sticky ---------- */
+  .sticky { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 50; display: none; align-items: center; justify-content: space-between; gap: 12px; background: var(--dark); border: 1px solid var(--line-d); border-radius: 999px; padding: 8px 8px 8px 22px; color: #fff; box-shadow: 0 14px 40px -10px rgba(0,0,0,.6); transform: translateY(140%); transition: transform .35s ease; }
   .sticky.show { transform: translateY(0); }
-  .sticky-price { font-family: var(--serif); font-weight: 800; font-size: 19px; white-space: nowrap; }
-  .sticky a { background: var(--coral); color: var(--white); text-decoration: none; font-weight: 800; border-radius: 12px; padding: 12px 20px; white-space: nowrap; }
+  .sticky-price { font-weight: 600; font-size: 19px; white-space: nowrap; }
 
-  /* ---------- Animatsiya ---------- */
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
   .reveal.in { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-    .circle.playing, .circle.playing .circle-inner, .badge-icon { animation: none; }
-    html { scroll-behavior: auto; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1000px) {
+    .rcards { grid-template-columns: repeat(2, 1fr); }
+    .vcard { flex-basis: calc((100% - 18px) / 2); }
+    .steps { grid-template-columns: 1fr 40px 1fr 40px 1fr; row-gap: 32px; }
+    .step-cta { grid-column: 1 / -1; padding: 0; max-width: 360px; margin: 0 auto; }
+    .wgrid { grid-template-columns: 1fr 1fr; }
+    .weq { display: none; }
+    .wcard-hl { grid-column: 1 / -1; min-height: 190px; }
   }
-  @media (max-width: 560px) {
-    section { padding: 52px 0; }
-    .circle { flex-basis: 170px; }
-    .circle.expanded { flex-basis: 310px; }
-    .cta { min-width: 0; width: 100%; max-width: 360px; gap: 12px; }
-    .cta-icon { flex-basis: 46px; width: 46px; height: 46px; }
-    .cta-text { font-size: 16px; }
+  @media (max-width: 860px) {
+    .nav-links { display: none; }
+    .nav { justify-content: flex-end; }
+    .hero-grid, .bonus-grid, .faq-grid { grid-template-columns: 1fr; }
+    .hero-grid { padding-top: 36px; }
+    .hero-img { max-width: 440px; margin: 0 auto; }
+    .hero .contours { width: 120%; right: -30%; top: 30%; }
+    .sec-head { flex-direction: column; gap: 14px; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-copy { padding: 52px 28px 36px; }
+    .why-img { min-height: 320px; }
+    .why-img img { height: 100%; }
+    .why-img::after { background: linear-gradient(180deg, var(--cream) 0%, transparent 30%); }
+    .why-quote { position: relative; right: auto; top: auto; transform: none; margin: 0; padding: 0 28px 28px; max-width: none; background: none; z-index: 2; }
+    .faq-q { display: none; }
+    .reg-right { text-align: left; }
+  }
+  @media (max-width: 640px) {
+    body { font-size: 16.5px; padding-bottom: 84px; }
+    .wrap { padding: 0 20px; }
+    .sec { padding: 52px 0; }
     .sticky { display: flex; }
-    body { padding-bottom: 84px; }
+    .rcards { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin: 0 -20px; padding: 0 20px 12px; }
+    .rcard { flex: 0 0 76%; scroll-snap-align: start; }
+    .vcard { flex-basis: 84%; }
+    .vnav { display: none; }
+    .feats { gap: 22px; }
+    .steps { grid-template-columns: 1fr; }
+    .sarrow { display: none; }
+    .step { display: flex; align-items: center; gap: 16px; text-align: left; padding: 0; }
+    .step .ic { margin: 0; flex: none; width: 58px; height: 58px; }
+    .wgrid { grid-template-columns: 1fr; }
+    .faq-a { padding-left: 4px; }
+    .pay { padding: 20px; }
+    .nav .btn { padding: 10px 18px; }
   }
-  @media (max-width: 380px) { .badge { font-size: 11.5px; } .cta-text { font-size: 15px; } }
 </style>
 </head>
 <body>
 
+<!-- Ixtiyoriy kontur chiziqlar (SVG) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="topo" viewBox="0 0 600 600">
+      <g fill="none" stroke-width="1.2">
+        <path stroke="#D99A5B" d="M40 420C120 300 140 210 250 170s190 20 230 110-30 170-120 200S120 520 40 420z"/>
+        <path stroke="#D99A5B" opacity=".8" d="M80 410C150 310 170 240 255 205s150 10 185 85-20 140-95 165S130 490 80 410z"/>
+        <path stroke="#3DB8A8" opacity=".9" d="M125 400c55-80 80-130 140-155s110 5 135 60-15 100-70 120-155 55-205-25z"/>
+        <path stroke="#D99A5B" opacity=".7" d="M170 392c40-55 60-90 100-108s80 5 98 42-10 70-50 84-110 40-148-18z"/>
+        <path stroke="#3DB8A8" opacity=".8" d="M215 380c25-35 40-55 65-65s50 4 60 26-8 42-32 50-72 20-93-11z"/>
+        <path stroke="#D99A5B" opacity=".5" d="M10 480C100 330 120 190 270 130s250 40 300 160-40 230-170 270S-20 600 10 480z"/>
+        <path stroke="#D99A5B" opacity=".35" d="M-20 520C80 340 100 160 280 90s300 60 340 200-60 270-210 320S-70 640-20 520z"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
 <!-- ============ 1. HERO ============ -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="badge">
-      <span class="badge-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M12 2.5 1.5 20.5h21L12 2.5z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 9v5" stroke="#1559C7" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17.2" r="1.3" fill="#1559C7"/></svg></span>
-      <span class="badge-sep"></span>
-      <span class="badge-text">LOR shifokorlari <em>diqqatiga!</em></span>
+<section class="hero dark" id="bosh">
+  <svg class="contours" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#topo"/></svg>
+  <div class="wrap">
+    <nav class="nav">
+      <div class="nav-links">
+        <a href="#bosh">Bosh sahifa</a>
+        <a href="#dars-haqida">Dars haqida</a>
+        <a href="#natijalar">Natijalar</a>
+        <a href="#fikrlar">Fikrlar</a>
+        <a href="#savollar">Savollar</a>
+      </div>
+      <a class="btn btn-sm" href="#dars">Darslikni olish <svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+    </nav>
+
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">LOR shifokorlari diqqatiga!</p>
+        <h1>Endoskopik peshona operatsiyalarini <em>xavfsiz va asoratsiz o‘tkazishni bu 5 qadam</em> orqali o‘rganing!</h1>
+        <p class="hero-sub">Frontal sinus jarrohligi bo‘yicha amaliy tajribaga asoslangan ikkita video dars va bitta bonus dars. Qisqa, aniq va amaliy.</p>
+        <a class="btn hero-cta" href="#dars">Darslikni olish <svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+        <div class="feats">
+          <div class="feat"><i><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M10 9l5 3-5 3z"/></svg></i><span>2 ta video dars<small>(asosiy mavzu)</small></span></div>
+          <div class="feat"><i><svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="11" rx="1"/><path d="M12 9v11M3 13h18M12 9c-3 0-5-1-5-3s3-2.5 5 3c2-5.500 5-5 5-3s-2 3-5 3"/></svg></i><span>1 ta bonus dars<small>(orientirlar)</small></span></div>
+          <div class="feat"><i><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12.500l3 3 5-6"/></svg></i><span>Amaliy tajribaga<small>asoslangan</small></span></div>
+        </div>
+      </div>
+      <div class="hero-img"><img src="images/doctor-skull.webp" alt="Mirkamol Nosirjonov"></div>
     </div>
-    <h1>Endoskopik Peshona Operatsiyalarini xavfsiz va asoratsiz o'tkazishni bu 5 qadam orqali o'rganing!</h1>
-    <div class="hero-visual"><img class="hero-img" src="images/doctor-skull.webp" alt="Mirkamol Nosirjonov"></div>
-    <a class="cta" href="#dars">
-      <span class="cta-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8.5a6.5 6.5 0 1 1 13 0c0 6-6 6-6 10a3.5 3.5 0 1 1-7 0"/><path d="M15 8.5a2.5 2.5 0 0 0-5 0v1a2 2 0 1 1 0 4"/></svg></span>
-      <span class="cta-text">Darslikni <em>olish</em></span>
-      <span class="cta-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M14 5l7 7-7 7"/></svg></span>
-    </a>
   </div>
 </section>
 
 <!-- ============ 2. NATIJALAR ============ -->
-<section class="results">
-  <div class="container">
-    <h2 class="reveal">Bu darsni ko'rganingizdan keyin qanday natija olasiz:</h2>
-    <div class="cards">
-      <article class="rcard reveal"><img class="rcard-img" src="images/cards/c1.webp" alt="01" loading="lazy">
-        <div class="rcard-body"><h3 class="rcard-title">MSKT orqali <em>o'roqsimon o'siq</em> birikishini aniqlaysiz</h3></div></article>
-      <article class="rcard reveal"><img class="rcard-img" src="images/cards/c2.webp" alt="02" loading="lazy">
-        <div class="rcard-body"><h3 class="rcard-title">Operatsiyaga tayyor <em>reja</em> bilan kirasiz</h3></div></article>
-      <article class="rcard reveal"><img class="rcard-img" src="images/cards/c3.webp" alt="03" loading="lazy">
-        <div class="rcard-body"><h3 class="rcard-title">Sinus frontalisning 5 ta asosiy drenaj yo'li <em>(UP-MT, UP-LP, UP-UPa, UP-BLEB, BLEB-BLMT)</em></h3></div></article>
-      <article class="rcard reveal"><img class="rcard-img" src="images/cards/c5.webp" alt="05" loading="lazy">
-        <div class="rcard-body"><h3 class="rcard-title">Ko'z kosasi va <em>miya asosi</em> atrofida xavfsiz ishlaysiz</h3></div></article>
+<section class="light sec" id="natijalar">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Bu darsni ko‘rganingizdan keyin qanday natija olasiz?</h2>
+      <p class="sec-note">Kundalik amaliyotda darhol qo‘llash mumkin bo‘lgan aniq ko‘nikmalar.</p>
+    </div>
+    <div class="rcards">
+      <article class="rcard reveal" style="--img:url(images/cards/c1.webp)">
+        <span class="rnum">01</span>
+        <h3 class="rtitle">MSKT orqali <em>o‘roqsimon o‘siq</em> birikishini aniqlaysiz.</h3>
+        <span class="rarrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+      <article class="rcard reveal" style="--img:url(images/cards/c2.webp)">
+        <span class="rnum">02</span>
+        <h3 class="rtitle">Operatsiyaga tayyor <em>reja</em> bilan kirasiz.</h3>
+        <span class="rarrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+      <article class="rcard reveal" style="--img:url(images/cards/c3.webp)">
+        <span class="rnum">03</span>
+        <h3 class="rtitle">Sinus frontalisning 5 ta asosiy <em>drenaj yo‘li</em> (UP-MT, UP-LP, UP-UPa, UP-BLEB, BLEB-BLMT)</h3>
+        <span class="rarrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+      <article class="rcard reveal" style="--img:url(images/cards/c5.webp)">
+        <span class="rnum">04</span>
+        <h3 class="rtitle">Ko‘z kosasi va <em>miya asosi</em> atrofida xavfsiz ishlaysiz.</h3>
+        <span class="rarrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
     </div>
   </div>
 </section>
 
-<section class="demo">
-  <div class="container demo-wrap">
-    <h2 class="reveal">Bonus dars</h2>
-    <div class="demo-grid">
-      <div class="macbook reveal" role="img" aria-label="Endoskopik frontotomiyada asosiy orientirlar darsi">
-        <div class="mb-lid">
-          <i class="mb-cam"></i>
-          <div class="mb-screen"><img src="images/lesson.webp" alt="Endoskopik frontotomiyada asosiy orientirlar"></div>
-        </div>
-        <div class="mb-base"></div>
-      </div>
-      <div class="demo-side reveal">
-        <h3>Darsda:</h3>
-        <ul class="demo-list">
-        <li><span class="chk"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span>Peshona bo‘shlig‘ini endoskopik operatsiya qilishda asosiy anatomik orientirlar</span></li>
-        <li><span class="chk"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span>Operatsiya vaqtida adashib qolmaslik uchun qaysi tuzilmalarga tayanish kerakligi</span></li>
-        <li><span class="chk"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span>KT tasvirida muhim nuqtalarni operatsiyadan oldin aniqlash</span></li>
-        <li><span class="chk"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span>Xavfli zonalar (miya asosi, g‘alvirsimon plastinka) va ularda ehtiyot bo‘lish qoidalari</span></li>
-        </ul>
-      </div>
+<!-- ============ 3. BONUS DARS ============ -->
+<section class="dark bonus" id="dars-haqida">
+  <svg class="contours" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#topo"/></svg>
+  <div class="wrap bonus-grid">
+    <div class="reveal">
+      <p class="eyebrow">Bonus dars</p>
+      <h2>Endoskopik frontotomiyada asosiy orientirlar</h2>
+      <p>Peshona bo‘shlig‘ini endoskopik operatsiya qilishda asosiy anatomik orientirlar va xavfli zonalarni bilish bo‘yicha amaliy dars.</p>
     </div>
+    <ul class="blist reveal">
+      <li><span class="n">01</span><span class="t" style="--img:url(images/cards/c1.webp)"></span><span class="s">Peshona bo‘shlig‘ini endoskopik operatsiya qilishda asosiy anatomik orientirlar</span></li>
+      <li><span class="n">02</span><span class="t" style="--img:url(images/cards/c2.webp)"></span><span class="s">Operatsiya vaqtida adashib qolmaslik uchun qaysi tuzilmalarga tayanish kerakligi</span></li>
+      <li><span class="n">03</span><span class="t" style="--img:url(images/cards/c3.webp)"></span><span class="s">KT tasvirida muhim nuqtalarni operatsiyadan oldin aniqlash</span></li>
+      <li><span class="n">04</span><span class="t" style="--img:url(images/cards/c5.webp)"></span><span class="s">Xavfli zonalar (miya asosi, g‘alvirsimon plastinka) va ularda ehtiyot bo‘lish qoidalari</span></li>
+    </ul>
+  </div>
+</section>
 
-    <h2 class="story-title reveal">Nimaga bunaqa narx?</h2>
-    <div class="story reveal">
+<!-- ============ 4. NIMAGA BUNAQA NARX ============ -->
+<section class="light why">
+  <div class="why-grid">
+    <div class="why-copy reveal">
+      <h2>Nimaga bunaqa narx?</h2>
       <p>Men ilm olish pul sababli to‘xtab qolishini xohlamayman.</p>
       <p>Bu bilimlarni o‘zlashtirish uchun 5 dan ortiq davlatda malaka oshirdim. Yillar davomida vaqtimni va bir necha ming dollar pulimni sarflashga majbur bo‘ldim.</p>
-      <p>Qolaversa, bu 2 ta darsni hech kimga alohida sotmaganman. Ular faqatgina 5.000.000 so‘mlik dasturim tarkibida berilgan.</p>
-      <p class="hl">Lekin, siz hoziroq shu 2 ta darsni qo‘lga kiritishingiz mumkin</p>
+      <p>Bu 2 ta darsni hech kimga alohida sotmaganman. Ular faqatgina 5.000.000 so‘mlik dasturim tarkibida berilgan. Lekin siz hoziroq shu 2 ta darsni qo‘lga kiritishingiz mumkin.</p>
+      <a class="btn btn-lg" href="#dars">Bor-yo‘g‘i 97 000 so‘m <svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
     </div>
-
-    <a class="now-link reveal" href="#dars">
-      <div class="now-label">bor-yo‘g‘i</div>
-      <span class="now-price">97.000 so‘m</span>
-    </a>
-  </div>
-</section>
-
-<section class="paths">
-  <div class="container">
-    <h2 class="reveal">97,000 evaziga nimalar olsa bo'ladi?</h2>
-    <div class="tri-grid">
-      <article class="tri tri-1 reveal">
-        <div class="tri-cut-img"><img src="images/cutout-kino.webp" alt="Kino chiptalari" loading="lazy"></div>
-        <p class="tri-cap">Kinoga 1 ta VIP chipta</p>
-      </article>
-
-      <article class="tri tri-2 reveal">
-        <div class="tri-cut-img"><img src="images/cutout-kfc.webp" alt="Qovurilgan tovuq va kartoshka fri" loading="lazy"></div>
-        <p class="tri-cap">KFC dan 2 ta sanders box</p>
-      </article>
-
-      <article class="tri tri-3 reveal">
-        <div class="tri-cut-img"><img class="tri-mac" src="images/macbook-lessons-v2.webp" alt="Kursdagi 2 ta foydali darslik" loading="lazy"></div>
-        <p class="tri-cap">Kursimdagi 2 ta foydali darslik</p>
-      </article>
+    <div class="why-img">
+      <img src="images/lesson.webp" alt="">
+      <p class="why-quote">Maqsadim — sifatli va amaliy bilimni mumkin qadar ko‘proq LOR shifokorlari uchun hamyonbop qilish.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ 4. STORY END ============ -->
-<section class="stack" id="stack">
-  <div class="container">
-    <div class="story story-end reveal">
-      <p>Berayotgan darslarim sizga haqiqatan ham foyda berishiga va amaliyotda natija berishiga ishonaman.</p>
-      <p>Chunki maqsadim shunchaki dars o‘tish emas, balki sizga real ish jarayonida kerak bo‘ladigan bilimlarni berish.</p>
-      <p>Agar hali ham ikkilanayotgan bo‘lsangiz, quyida katta dasturimda o‘qigan hamkasblarimning fikrlarini qoldiraman.</p>
-      <p>O‘zingiz ko’rib chiqib, qaror qiling 👇</p>
+<!-- ============ 5. 97 000 EVAZIGA ============ -->
+<section class="dark worth">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2><em>97 000</em> evaziga nimalar olsa bo‘ladi?</h2>
+      <p class="sec-note">Tanlov sizdan.<br>Biz esa bilim taklif qilamiz.</p>
+    </div>
+    <div class="wgrid">
+      <article class="wcard reveal"><img src="images/cutout-kino.webp" alt="Kino chiptalari" loading="lazy"><h3>Kino bileti</h3><small>Bir martalik zavq</small></article>
+      <article class="wcard reveal"><img src="images/cutout-kfc.webp" alt="Ovqat" loading="lazy"><h3>Restoranda ovqat</h3><small>Bir martalik ta’m</small></article>
+      <div class="weq" aria-hidden="true">=</div>
+      <article class="wcard wcard-hl reveal"><img src="images/macbook-lessons-v2.webp" alt="2 ta video dars" loading="lazy"><h3>2 ta video dars</h3><small>Amaliy va doimiy qiymat</small></article>
     </div>
   </div>
 </section>
 
-<!-- ============ 3. O'QUVCHILARIM NATIJALARI ============ -->
-<section class="students">
-  <div class="container">
-    <h2 class="reveal">Kurslarim o'quvchilari nima deydi?</h2>
-    <div class="circles reveal">
-      <div class="circle embed"><div class="circle-inner"><div class="kp" id="kp1" data-vid="qfQKvrNSEzueTaLCAGHpQj"></div></div></div>
-      <div class="circle embed"><div class="circle-inner"><div class="kp" id="kp2" data-vid="tDmW8p3ozuyESu1R64hZ9t"></div></div></div>
-      <div class="circle embed"><div class="circle-inner"><div class="kp" id="kp3" data-vid="tQ7PT96D2N1s6RtQjGoCCU"></div></div></div>
-      <div class="circle embed"><div class="circle-inner"><div class="kp" id="kp4" data-vid="dgNbTb2EfUgeAtgNMee12n"></div></div></div>
-      <div class="circle embed"><div class="circle-inner"><div class="kp" id="kp5" data-vid="2TLfJW3uGGcU2RogDJcpF1"></div></div></div>
-      <div class="circle embed"><div class="circle-inner"><div class="kp" id="kp6" data-vid="2UBbS1P8L4J9akqmCBUE2z"></div></div></div>
+<!-- ============ 6. O'QUVCHILAR ============ -->
+<section class="light sec voices" id="fikrlar">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Kurslarim o‘quvchilari nima deydi?</h2>
+      <p class="sec-note">Real fikrlar, real tajriba.</p>
+    </div>
+    <div class="vwrap reveal">
+      <button class="vnav prev" type="button" aria-label="Oldingi"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <div class="vtrack" id="vtrack">
+        <div class="vcard"><div class="vframe"><div class="kp" id="kp1" data-vid="qfQKvrNSEzueTaLCAGHpQj"></div></div></div>
+        <div class="vcard"><div class="vframe"><div class="kp" id="kp2" data-vid="tDmW8p3ozuyESu1R64hZ9t"></div></div></div>
+        <div class="vcard"><div class="vframe"><div class="kp" id="kp3" data-vid="tQ7PT96D2N1s6RtQjGoCCU"></div></div></div>
+        <div class="vcard"><div class="vframe"><div class="kp" id="kp4" data-vid="dgNbTb2EfUgeAtgNMee12n"></div></div></div>
+        <div class="vcard"><div class="vframe"><div class="kp" id="kp5" data-vid="2TLfJW3uGGcU2RogDJcpF1"></div></div></div>
+        <div class="vcard"><div class="vframe"><div class="kp" id="kp6" data-vid="2UBbS1P8L4J9akqmCBUE2z"></div></div></div>
+      </div>
+      <button class="vnav next" type="button" aria-label="Keyingi"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
     </div>
   </div>
 </section>
 
-<section class="faq" id="faq">
-  <div class="container">
-    <h2 class="reveal">Ko‘p beriladigan savollar</h2>
-    <div class="faq-list">
-      <details class="faq-item reveal" name="faq" open>
-        <summary><span>Bu darslar kimlar uchun?</span><i class="faq-ico" aria-hidden="true"></i></summary>
+<!-- ============ 7. FAQ ============ -->
+<section class="dark faq" id="savollar">
+  <svg class="contours" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#topo"/></svg>
+  <div class="wrap faq-grid">
+    <div class="reveal">
+      <h2>Ko‘p beriladigan savollar</h2>
+      <div class="faq-q" aria-hidden="true">?</div>
+    </div>
+    <div class="faq-list reveal">
+      <details class="faq-item" name="faq" open>
+        <summary><span class="faq-n">01</span><span class="faq-t">Bu darslar kimlar uchun?</span><i class="faq-ico" aria-hidden="true"></i></summary>
         <div class="faq-a"><p>Darslar LOR shifokorlari, endoskopik peshona operatsiyalarini xavfsiz va asoratsiz o‘tkazishni o‘rganmoqchi bo‘lgan mutaxassislar uchun mo‘ljallangan. Ularda oddiy nazariya emas, amaliyotda kerak bo‘ladigan bilimlar berilgan.</p></div>
       </details>
-      <details class="faq-item reveal" name="faq">
-        <summary><span>97 000 so‘mga aynan nimalar kiradi?</span><i class="faq-ico" aria-hidden="true"></i></summary>
+      <details class="faq-item" name="faq">
+        <summary><span class="faq-n">02</span><span class="faq-t">97 000 so‘mga aynan nimalar kiradi?</span><i class="faq-ico" aria-hidden="true"></i></summary>
         <div class="faq-a"><p>Siz 2 ta amaliy darsni olasiz: “Endoskopik frontotomiyada asosiy orientirlar” va “Endoskopik Peshona Operatsiyalarida 5 ta Muhim Peshona Drenaj Sistemasi”. Ular orqali MSKT asosida o‘roqsimon o‘siq birikishini aniqlashni, operatsiyaga tayyor reja bilan kirishni va ko‘z kosasi hamda miya asosi atrofida xavfsiz ishlashni o‘rganasiz.</p></div>
       </details>
-      <details class="faq-item reveal" name="faq">
-        <summary><span>Nega narx 5 000 000 emas, 97 000 so‘m?</span><i class="faq-ico" aria-hidden="true"></i></summary>
+      <details class="faq-item" name="faq">
+        <summary><span class="faq-n">03</span><span class="faq-t">Nega narx 5 000 000 emas, 97 000 so‘m?</span><i class="faq-ico" aria-hidden="true"></i></summary>
         <div class="faq-a"><p>Bu 2 ta dars avval faqat narxi 5 000 000 so‘m bo‘lgan dasturim ichida, kurs ishtirokchilariga berilgan. Men bilim pul sababli to‘xtab qolishini xohlamayman, shuning uchun ularni siz uchun alohida, 97 000 so‘mga ochdim.</p></div>
       </details>
-      <details class="faq-item reveal" name="faq">
-        <summary><span>To‘lovni qanday qilaman va darslarni qanday olaman?</span><i class="faq-ico" aria-hidden="true"></i></summary>
+      <details class="faq-item" name="faq">
+        <summary><span class="faq-n">04</span><span class="faq-t">To‘lovni qanday qilaman va darslarni qanday olaman?</span><i class="faq-ico" aria-hidden="true"></i></summary>
         <div class="faq-a"><p>Sahifadagi karta raqamiga 97 000 so‘m o‘tkazasiz, to‘lov chekini rasmga olasiz va “Telegramga o‘tish” tugmasi orqali menejerga yuborasiz. Dars bir marta to‘lanadi, keyin ularni xohlagan vaqtda qayta ko‘rib foydalanishingiz mumkin.</p></div>
       </details>
     </div>
   </div>
 </section>
 
-<section class="final" id="dars">
-  <div class="container reg-wrap">
-    <div class="reg-head reveal">
-      <h2 class="reg-title">Ro’yxatdan o’tish tartibi:</h2>
-      <div class="timer"><span>Ro'yxatdan o'tish uchun qolgan vaqt:</span><b id="timer" aria-live="off">15:00</b></div>
+<!-- ============ 8. RO'YXATDAN O'TISH ============ -->
+<section class="light reg" id="dars">
+  <div class="wrap">
+    <div class="reg-top reveal">
+      <h2>Ro‘yxatdan o‘tish tartibi</h2>
+      <div class="reg-right">
+        <p>Atigi 3 qadamda darslarga ega bo‘ling.</p>
+        <div class="timer"><span>Qolgan vaqt:</span><b id="timer" aria-live="off">15:00</b></div>
+      </div>
     </div>
 
-    <div class="reg-grid">
-      <div class="reg-steps reveal">
-        <div class="step">
-          <p>1) Quyidagi karta raqamiga ushbu to’lovni amalga oshirasiz: <em>97,000 so'm</em></p>
-          <div class="pay">
-            <div class="pay-row">
-              <div class="pay-num" id="card-num">9860 2701 0289 3236</div>
-              <button type="button" class="copy" id="copy-btn">Nusxalash</button>
-            </div>
-            <div class="pay-name">Mirkamol Nosirjonov</div>
-          </div>
-        </div>
-        <div class="step"><p>2) To’lovingiz chekini rasmga olasiz</p></div>
+    <div class="steps reveal">
+      <div class="step"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M16 14.500h2"/></svg></div><div><div class="sn">01</div><div class="st">97 000 so‘mni to‘lang</div></div></div>
+      <div class="sarrow"></div>
+      <div class="step"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg></div><div><div class="sn">02</div><div class="st">To‘lov chekini yuboring</div></div></div>
+      <div class="sarrow"></div>
+      <div class="step"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 3 3 10.500l6 2.500 2.500 6L21 3zM9 13l5-4"/></svg></div><div><div class="sn">03</div><div class="st">Quyidagi tugma orqali Telegramga o‘ting</div></div></div>
+      <div class="step-cta">
+        <a class="btn btn-lg" id="tg-link" href="https://t.me/mirkamol_menejer?text=Assalamu%20alaykum%21%0A%0AEndoskopik%20Peshona%20%7C%20Darslar%20uchun%20tolov%20chekini%20xozir%20tashlayman." target="_blank" rel="noopener">Telegramga o‘tish <svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+        <small>To‘lov va ro‘yxatdan o‘tish uchun bizning Telegram sahifamizga o‘ting.</small>
       </div>
+    </div>
 
-      <div class="reg-form reveal">
-        <p class="up-label">3) To'lov chekini pastdagi tugmani bosib, bizga yuborasiz.</p>
-        <a class="cta cta-tg" id="tg-link" href="https://t.me/mirkamol_menejer?text=Assalamu%20alaykum%21%0A%0AEndoskopik%20Peshona%20%7C%20Darslar%20uchun%20tolov%20chekini%20xozir%20tashlayman." target="_blank" rel="noopener">
-          <span class="tg-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M21.5 3.3 2.9 10.5c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.1.8.7.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.5.2 1.7-.8l3-14.3c.3-1.2-.4-1.7-1.3-1.3zM9 13.7l9.3-5.9c.4-.3.8-.1.5.2l-7.7 7-.3 3.2-1.8-4.5z"/></svg></span>
-          <span class="cta-text">Telegramga <em>o'tish</em></span>
-          <span class="tg-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M14 5l7 7-7 7"/></svg></span>
-        </a>
+    <div class="pay reveal">
+      <div class="pay-l">
+        <small>Karta raqami · 97 000 so‘m</small>
+        <div class="pay-num" id="card-num">9860 2701 0289 3236</div>
+        <div class="pay-name">Mirkamol Nosirjonov</div>
       </div>
+      <button type="button" class="copy" id="copy-btn">Nusxalash</button>
     </div>
   </div>
 </section>
 
-<!-- Mobil sticky CTA -->
 <div class="sticky" aria-hidden="true">
   <span class="sticky-price">97.000 so'm</span>
-  <a href="#dars" tabindex="-1">Darslikni olish</a>
+  <a class="btn btn-sm" href="#dars" tabindex="-1">Darslikni olish</a>
 </div>
 
 <script src="https://player.kinescope.io/latest/iframe.player.js"></script>
 <script>
-  // Kinescope krujoklar: bosilganda o'z joyida kattalashib o'ynaydi,
-  // pauza bosilsa yoki video tugasa joyiga qaytadi
+  // Kinescope videolar
   (function () {
-    var circles = Array.prototype.slice.call(document.querySelectorAll('.circle.embed'));
-    var current = null;
-
-    circles.forEach(function (c) {
-      var box = c.querySelector('.kp');
-      c.player = null;
-      c.ready = (typeof Kinescope === 'undefined') ? Promise.resolve(null) :
-        Kinescope.IframePlayer.create(box.id, {
-          url: 'https://kinescope.io/' + box.dataset.vid,
-          size: { width: '100%', height: '100%' },
-          behaviour: { autoPlay: false, playsInline: true }
-        }).then(function (pl) {
-          c.player = pl;
-          var back = function () { if (c.classList.contains('expanded')) shrink(c); };
-          pl.on(pl.Events.Pause, function () {
-            setTimeout(function () { pl.isPaused().then(function (p) { if (p) back(); }); }, 300);
-          });
-          pl.on(pl.Events.Ended, back);
-          return pl;
-        }).catch(function () { return null; });
+    if (typeof Kinescope === 'undefined') return;
+    document.querySelectorAll('.kp').forEach(function (box) {
+      Kinescope.IframePlayer.create(box.id, {
+        url: 'https://kinescope.io/' + box.dataset.vid,
+        size: { width: '100%', height: '100%' },
+        behaviour: { autoPlay: false, playsInline: true }
+      }).catch(function () {});
     });
-
-    function shrink(c) {
-      c.classList.remove('expanded');
-      if (c.player) c.player.pause();
-      if (current === c) current = null;
-    }
-    function grow(c) {
-      if (current && current !== c) shrink(current);
-      current = c;
-      c.classList.add('expanded');
-      c.ready.then(function (pl) { if (pl) pl.play(); });
-      setTimeout(function () { c.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }); }, 650);
-    }
-
-    circles.forEach(function (c) {
-      c.addEventListener('click', function () { if (!c.classList.contains('expanded')) grow(c); });
-    });
-    document.addEventListener('click', function (e) {
-      if (current && !e.target.closest('.circle.embed')) shrink(current);
-    });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && current) shrink(current); });
+    var tr = document.getElementById('vtrack');
+    function step(d) { var c = tr.querySelector('.vcard'); tr.scrollBy({ left: d * (c.offsetWidth + 18), behavior: 'smooth' }); }
+    document.querySelector('.vnav.prev').addEventListener('click', function () { step(-1); });
+    document.querySelector('.vnav.next').addEventListener('click', function () { step(1); });
   })();
 
-  // ---- Ro'yxatdan o'tish bloki ----
+  // Taymer va karta nusxalash
   (function () {
-    // Taymer: 15:00 dan teskari sanaydi, sahifa qayta ochilganda ham davom etadi
     var t = document.getElementById('timer'), KEY = 'tw_end', end;
     try { end = parseInt(localStorage.getItem(KEY), 10); } catch (e) {}
     if (!end || end < Date.now() - 60000) { end = Date.now() + 15 * 60 * 1000; try { localStorage.setItem(KEY, end); } catch (e) {} }
     function tick() {
       var left = Math.max(0, Math.round((end - Date.now()) / 1000));
-      var m = String(Math.floor(left / 60)).padStart(2, '0'), s = String(left % 60).padStart(2, '0');
-      t.textContent = m + ':' + s;
+      t.textContent = String(Math.floor(left / 60)).padStart(2, '0') + ':' + String(left % 60).padStart(2, '0');
     }
     tick(); setInterval(tick, 1000);
 
-    // Karta raqamini nusxalash
     var cb = document.getElementById('copy-btn');
     cb.addEventListener('click', function () {
       var num = document.getElementById('card-num').textContent.replace(/\s/g, '');
@@ -668,32 +522,19 @@
     });
   })();
 
-  // FAQ: javob silliq ochiladi va yopiladi
+  // FAQ
   (function () {
     var items = Array.prototype.slice.call(document.querySelectorAll('.faq-item'));
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var EASE = 'cubic-bezier(.22,1,.36,1)', DUR = 520;
-
     function run(el, from, to, done) {
       if (el._anim) el._anim.cancel();
       if (reduce) { el.style.height = ''; return done && done(); }
       el.style.overflow = 'hidden';
-      var a = el._anim = el.animate({ height: [from + 'px', to + 'px'] }, { duration: DUR, easing: EASE });
+      var a = el._anim = el.animate({ height: [from + 'px', to + 'px'] }, { duration: 480, easing: 'cubic-bezier(.22,1,.36,1)' });
       a.onfinish = a.oncancel = function () { el._anim = null; el.style.height = ''; el.style.overflow = ''; if (done) done(); };
     }
-    function open(el) {
-      var from = el.offsetHeight;
-      el.open = true;
-      var to = el.scrollHeight;
-      el.classList.add('is-open');
-      run(el, from, to);
-    }
-    function close(el) {
-      var from = el.offsetHeight;
-      var to = el.querySelector('summary').offsetHeight;
-      el.classList.remove('is-open');
-      run(el, from, to, function () { el.open = false; });
-    }
+    function open(el) { var from = el.offsetHeight; el.open = true; var to = el.scrollHeight; el.classList.add('is-open'); run(el, from, to); }
+    function close(el) { var from = el.offsetHeight, to = el.querySelector('summary').offsetHeight; el.classList.remove('is-open'); run(el, from, to, function () { el.open = false; }); }
     items.forEach(function (el) {
       if (el.open) el.classList.add('is-open');
       el.querySelector('summary').addEventListener('click', function (e) {
@@ -705,21 +546,17 @@
     });
   })();
 
-  // Bo'limlar ko'rinishga kirganda yumshoq paydo bo'lishi
+  // Paydo bo'lish animatsiyasi va sticky tugma
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
 
-    // Sticky CTA: hero'dan o'tgach chiqadi, ro'yxatdan o'tish joyida yashirinadi
-    var sticky = document.querySelector('.sticky');
-    var heroVisible = true, darsVisible = false;
-    var update = function () { sticky.classList.toggle('show', !heroVisible && !darsVisible); };
-    new IntersectionObserver(function (e) { heroVisible = e[0].isIntersecting; update(); })
-      .observe(document.querySelector('.hero .cta'));
-    new IntersectionObserver(function (e) { darsVisible = e[0].isIntersecting; update(); })
-      .observe(document.querySelector('#dars'));
+    var sticky = document.querySelector('.sticky'), heroVisible = true, regVisible = false;
+    var update = function () { sticky.classList.toggle('show', !heroVisible && !regVisible); };
+    new IntersectionObserver(function (e) { heroVisible = e[0].isIntersecting; update(); }).observe(document.querySelector('.hero-cta'));
+    new IntersectionObserver(function (e) { regVisible = e[0].isIntersecting; update(); }).observe(document.getElementById('dars'));
   } else {
     document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
   }
