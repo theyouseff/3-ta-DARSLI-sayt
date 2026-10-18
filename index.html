@@ -1,0 +1,728 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>97,000 So'mlik darsni olish</title>
+<meta name="theme-color" content="#F2F6FA">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F2F6FA;
+    --paper-2: #E4ECF4;
+    --card: #FFFFFF;
+    --ink: #0D1B2E;
+    --ink-70: rgba(13, 27, 46, .72);
+    --ink-10: rgba(13, 27, 46, .10);
+    --green: #1559C7;
+    --green-dk: #0A3578;
+    --coral: #0E9AB0;
+    --coral-dk: #097487;
+    --sun: #CFE6F7;
+    --white: #fff;
+    --radius: 24px;
+    --serif: "Manrope", Arial, sans-serif;
+    --sans: "Manrope", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; }
+  .container { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+  section { padding: 72px 0; }
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(26px, 5vw, 40px);
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
+    letter-spacing: -.01em;
+    margin-bottom: 40px;
+  }
+  h2::after {
+    content: "";
+    display: block;
+    width: 64px; height: 5px;
+    border-radius: 5px;
+    background: var(--coral);
+    margin: 18px auto 0;
+  }
+
+  /* ---------- CTA (knopka) ---------- */
+  .cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 320px;
+    max-width: 100%;
+    padding: 8px 12px 8px 8px;
+    background: var(--coral);
+    border-radius: 18px;
+    color: var(--white);
+    text-decoration: none;
+    box-shadow: 0 14px 28px -10px rgba(14, 154, 176, .55);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .cta:hover { transform: translateY(-2px); box-shadow: 0 18px 32px -10px rgba(14, 154, 176, .6); }
+  .cta:active { transform: translateY(5px); box-shadow: 0 6px 12px -6px rgba(14,154,176,.5); }
+  .cta-icon {
+    flex: 0 0 52px; width: 52px; height: 52px;
+    border-radius: 13px;
+    display: grid; place-items: center;
+    background: rgba(255,255,255,.2);
+  }
+  .cta-icon svg { stroke: var(--white); }
+  .cta-text { flex: 1; font-weight: 800; font-size: 18px; white-space: nowrap; }
+  .cta-text em { font-style: normal; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+  .cta-arrow { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--white); transition: transform .2s; }
+  .cta-arrow svg { stroke: var(--coral-dk); }
+  .cta:hover .cta-arrow { transform: translateX(4px); }
+
+  /* ---------- 1. HERO ---------- */
+  .hero {
+    position: relative;
+    isolation: isolate;
+    background: var(--paper);
+    padding: 48px 0 0;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute; z-index: -1;
+    right: -8%; top: 0; bottom: 0; width: 56%;
+    background: var(--green);
+    border-radius: 0 0 0 160px;
+  }
+  .hero-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    grid-template-areas:
+      "badge badge"
+      "title img"
+      "cta   img";
+    column-gap: 40px;
+    align-items: center;
+  }
+  .badge {
+    grid-area: badge; justify-self: start; margin-bottom: 28px;
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--sun);
+    color: var(--ink);
+    border-radius: 999px;
+    padding: 8px 18px 8px 10px;
+    font-size: 14px; font-weight: 800;
+    
+    box-shadow: 0 6px 16px -8px rgba(13,27,46,.35);
+  }
+  .badge-icon { width: 28px; height: 28px; border-radius: 50%; background: var(--green); display: grid; place-items: center; animation: wiggle 2.4s ease-in-out infinite; }
+  @keyframes wiggle { 0%, 100% { transform: rotate(0); } 10%, 30% { transform: rotate(-12deg); } 20%, 40% { transform: rotate(12deg); } 50% { transform: rotate(0); } }
+  .badge-sep { display: none; }
+  .badge-text em { font-style: normal; text-decoration: underline var(--coral); text-underline-offset: 4px; }
+  .hero h1 {
+    grid-area: title;
+    font-family: var(--serif);
+    font-size: clamp(30px, 4vw, 54px);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -.02em;
+    color: var(--ink);
+  }
+  .hero .cta { grid-area: cta; justify-self: start; margin-top: 40px; margin-bottom: 64px; }
+  .hero-visual { grid-area: img; align-self: end; position: relative; min-height: 300px; }
+  .hero-img { display: block; width: 100%; height: auto; max-height: 560px; object-fit: contain; object-position: center bottom; filter: drop-shadow(0 20px 30px rgba(0,0,0,.3)); }
+  @media (max-width: 820px) {
+    .hero { padding-top: 32px; }
+    .hero::before { width: 100%; right: 0; top: 52%; border-radius: 120px 0 0 0; }
+    .hero-inner { grid-template-columns: 1fr; grid-template-areas: "badge" "title" "cta" "img"; }
+    .hero .cta { margin-bottom: 8px; }
+    .hero-visual { min-height: 0; margin-top: 28px; }
+    .hero-img { max-width: 400px; margin: 0 auto; }
+  }
+  @media (max-width: 560px) { .badge { font-size: 12.5px; } }
+
+  /* ---------- 2. NATIJALAR ---------- */
+  .results { background: var(--paper-2); }
+  .results .container { max-width: 1200px; }
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; align-items: stretch; counter-reset: c; }
+  .rcard {
+    position: relative;
+    display: flex; flex-direction: column;
+    background: var(--card);
+    border: 1px solid rgba(13,27,46,.14);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 28px -10px rgba(13,27,46,.28);
+    transition: transform .2s, box-shadow .2s;
+    counter-increment: c;
+  }
+  .rcard:hover { transform: translate(-3px, -3px); box-shadow: 0 15px 28px -10px rgba(13,27,46,.28); }
+  .rcard-img { display: block; width: 100%; height: auto; border-bottom: 1px solid rgba(13,27,46,.14); }
+  .rcard::before {
+    content: "0" counter(c);
+    position: absolute; top: 10px; left: 10px; z-index: 1;
+    font-family: var(--serif); font-weight: 800; font-size: 14px;
+    background: var(--sun); color: var(--ink);
+    border: 1px solid rgba(13,27,46,.14); border-radius: 999px; padding: 1px 10px;
+  }
+  .rcard-body { padding: 18px 18px 22px; }
+  .rcard-title { font-size: 15px; font-weight: 700; line-height: 1.45; }
+  .rcard-title em { font-style: normal; color: var(--green); background: linear-gradient(transparent 62%, rgba(14,154,176,.28) 62%); }
+  @media (max-width: 1080px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 700px) {
+    .cards {
+      display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 16px;
+      gap: 16px; margin: 0 -16px; padding: 6px 22px 22px; -webkit-overflow-scrolling: touch;
+    }
+    .rcard { flex: 0 0 78%; scroll-snap-align: start; }
+    .rcard:hover { transform: none; box-shadow: 0 12px 28px -10px rgba(13,27,46,.28); }
+    .rcard-title { font-size: 16px; }
+  }
+
+  /* ---------- Noutbuk maketi ---------- */
+  .demo { background: var(--paper); padding: 72px 0 40px; position: relative; }
+  .demo .container { max-width: 1240px; position: relative; }
+  .demo-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; }
+  .macbook { width: 100%; max-width: 700px; justify-self: start; filter: drop-shadow(0 30px 30px rgba(13,27,46,.3)); }
+  .mb-lid {
+    position: relative; background: #14202e; border: 2px solid #3a4656;
+    border-radius: 16px 16px 6px 6px; padding: 3.4% 3.4% 4.2%;
+  }
+  .mb-cam { position: absolute; top: 1.5%; left: 50%; width: 7px; height: 7px; margin-left: -3.5px; border-radius: 50%; background: radial-gradient(circle, #4a5a6e, #14202e 70%); }
+  .mb-screen { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-radius: 4px; background: #000; }
+  .mb-screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .mb-screen::after { content: ""; position: absolute; inset: 0; background: linear-gradient(125deg, rgba(255,255,255,.12), transparent 38%); pointer-events: none; }
+  .mb-base {
+    position: relative; height: 16px; width: 112%; margin-left: -6%;
+    background: linear-gradient(180deg, #d9d4c9 0%, #aaa59a 60%, #7d7970 100%);
+    border-radius: 2px 2px 18px 18px / 2px 2px 14px 14px;
+  }
+  .mb-base::after { content: ""; position: absolute; top: 0; left: 50%; width: 16%; height: 6px; margin-left: -8%; background: #8c887e; border-radius: 0 0 10px 10px; }
+  .demo-side { background: var(--card); border: 1px solid rgba(13,27,46,.14); border-radius: 24px; padding: 30px 28px; box-shadow: 0 14px 28px -10px rgba(13,27,46,.28); }
+  .demo-side h3 { font-family: var(--serif); font-size: clamp(26px, 3vw, 34px); font-weight: 700; margin-bottom: 20px; }
+  .demo-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+  .demo-list li { display: flex; gap: 14px; align-items: flex-start; font-size: 16.5px; line-height: 1.5; }
+  .demo-list .chk { flex: 0 0 28px; height: 28px; border-radius: 8px; background: var(--green); display: grid; place-items: center; margin-top: 1px; }
+  .story-title { margin: 96px 0 0; }
+  .story { max-width: 760px; margin: 40px auto 0; font-size: clamp(18px, 2vw, 23px); line-height: 1.65; }
+  .story p + p { margin-top: 22px; }
+  .story .hl {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(22px, 2.6vw, 30px); line-height: 1.35;
+    background: var(--green); color: var(--white);
+    border-radius: 24px; padding: 26px 30px;
+    
+    box-shadow: 0 14px 28px -10px rgba(13,27,46,.28);
+  }
+  .now-link {
+    display: block; max-width: 760px; margin: 44px auto 0; text-align: center;
+    background: var(--green); color: #fff; text-decoration: none;
+    border: 1px solid rgba(13,27,46,.14); border-radius: 28px; padding: 28px 20px;
+    box-shadow: 0 14px 28px -10px rgba(13,27,46,.28);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .now-link:hover { transform: translate(-3px, -3px); box-shadow: 0 17px 28px -10px rgba(13,27,46,.28); }
+  .now-label { font-size: 17px; font-weight: 700; }
+  .now-price { display: block; font-family: var(--serif); font-size: clamp(42px, 11vw, 68px); font-weight: 800; line-height: 1.1; letter-spacing: -.02em; margin-top: 4px; }
+  @media (max-width: 900px) {
+    .demo-grid { grid-template-columns: 1fr; }
+    .demo-side { max-width: 560px; margin: 8px auto 0; }
+    .macbook { max-width: 520px; justify-self: center; }
+    .mb-base { width: 108%; margin-left: -4%; }
+  }
+
+  /* ---------- Uch variant ---------- */
+  .paths { background: var(--green); color: var(--white); padding: 80px 0; border-radius: 40px 40px 0 0; }
+  .paths .container { max-width: 1240px; }
+  .paths h2 { color: var(--white); }
+  .paths h2::after { background: var(--coral); }
+  .tri-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
+  .tri {
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    border-radius: 28px; padding: 26px 22px 26px;
+    background: var(--green-dk);
+    border: 2px solid rgba(255,255,255,.18);
+    transition: transform .3s;
+  }
+  .tri:hover { transform: translateY(-5px); }
+  .tri::before {
+    content: ""; position: absolute; left: 50%; top: 42%; width: 80%; aspect-ratio: 1; transform: translate(-50%, -50%);
+    border-radius: 50%; background: radial-gradient(circle, rgba(120,190,255,.3), transparent 68%);
+  }
+  .tri-3 { background: #fff; color: var(--ink); border-color: var(--ink); box-shadow: 0 14px 28px -10px rgba(13,27,46,.28); }
+  .tri-3::before { background: radial-gradient(circle, rgba(255,255,255,.55), transparent 68%); }
+  .tri-cut-img { position: relative; flex: 1; display: grid; place-items: center; min-height: 320px; }
+  .tri-cut-img img { width: 100%; max-height: 350px; object-fit: contain; filter: drop-shadow(0 20px 22px rgba(0,0,0,.4)); transition: transform .5s cubic-bezier(.22,1,.36,1); }
+  .tri:hover .tri-cut-img img { transform: scale(1.06) rotate(-2deg); }
+  .tri-cap { position: relative; margin-top: auto; padding-top: 18px; font-family: var(--serif); font-size: clamp(19px, 1.8vw, 23px); font-weight: 700; line-height: 1.3; text-align: center; }
+  @media (max-width: 1000px) { .tri-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; gap: 20px; } }
+
+  /* ---------- 3. KRUJOKLAR ---------- */
+  .students { background: var(--paper); padding-bottom: 96px; }
+  .students .container { max-width: 1440px; }
+  .circles { display: flex; align-items: center; gap: 16px; }
+  .circle { flex: 1 1 0; min-width: 0; }
+  .circle.expanded { flex-grow: 2.4; z-index: 3; }
+  @media (max-width: 1240px) {
+    .circles { overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-left: 16px; margin: 0 -16px; padding: 8px 16px 14px; -webkit-overflow-scrolling: touch; }
+    .circle { flex: 0 0 210px; scroll-snap-align: start; }
+    .circle.expanded { flex-basis: 420px; }
+  }
+  .circle {
+    position: relative; aspect-ratio: 1 / 1; border-radius: 50%; padding: 5px;
+    background: conic-gradient(var(--coral), var(--sun), var(--green), var(--coral));
+    cursor: pointer;
+    transition: flex-grow .9s cubic-bezier(.65,0,.35,1), flex-basis .9s cubic-bezier(.65,0,.35,1), box-shadow .6s ease, transform .3s ease;
+    will-change: flex-grow, flex-basis;
+  }
+  .circle:hover { transform: scale(1.03); }
+  .circle.expanded:hover { transform: none; }
+  .circle-inner { position: relative; width: 100%; height: 100%; border-radius: 50%; overflow: hidden; border: 4px solid var(--paper); background: var(--green-dk); }
+  .circle video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .kp { position: absolute; inset: 0; }
+  .circle iframe { position: absolute !important; inset: 0; width: 100% !important; height: 100% !important; border: 0; display: block; }
+  .circle.embed { box-shadow: 0 14px 30px -14px var(--ink); }
+  .circle.embed:not(.big)::after { content: ""; position: absolute; inset: 0; border-radius: 50%; z-index: 2; }
+  .circle.expanded { cursor: default; box-shadow: 0 24px 50px -16px var(--ink); }
+  .circle.expanded::after { display: none; }
+  .circle .play { position: absolute; inset: 0; display: grid; place-items: center; transition: opacity .2s; pointer-events: none; }
+  .circle .play span { width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,.25); border: 1px solid rgba(255,255,255,.6); display: grid; place-items: center; }
+  .circle.playing .play { opacity: 0; }
+  .circle.playing { animation: spin 3s linear infinite; }
+  .circle.playing .circle-inner { animation: spin 3s linear infinite reverse; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ---------- 4. STORY END ---------- */
+  .stack { background: var(--ink); color: var(--paper); padding: 72px 0; border-radius: 40px 40px 0 0; }
+  .stack .container { max-width: 1240px; }
+  .stack .story { margin-top: 0; color: var(--paper); }
+  .story-end { font-weight: 600; }
+
+  /* ---------- FAQ ---------- */
+  .faq { background: var(--paper-2); padding: 80px 0 48px; }
+  .faq .container { max-width: 820px; }
+  .faq-list { display: flex; flex-direction: column; gap: 14px; }
+  .faq-item { overflow: hidden; background: var(--card); border: 1px solid rgba(13,27,46,.14); border-radius: 18px; transition: box-shadow .3s, background .3s; }
+  .faq-item.is-open { box-shadow: 0 12px 28px -10px rgba(13,27,46,.28); }
+  .faq-item summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 20px 22px; font-size: 18px; font-weight: 700; line-height: 1.4; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-ico { position: relative; flex: 0 0 34px; height: 34px; border-radius: 10px; background: var(--sun); border: 1px solid rgba(13,27,46,.14); transition: transform .5s cubic-bezier(.22,1,.36,1), background .3s; }
+  .faq-ico::before, .faq-ico::after { content: ""; position: absolute; left: 50%; top: 50%; width: 14px; height: 2.5px; margin: -1px 0 0 -7px; background: var(--ink); border-radius: 2px; transition: transform .35s; }
+  .faq-ico::after { transform: rotate(90deg); }
+  .faq-item.is-open .faq-ico { background: var(--coral); transform: rotate(180deg); }
+  .faq-item.is-open .faq-ico::after { transform: rotate(0deg); }
+  .faq-a { padding: 0 22px 24px; color: var(--ink-70); font-size: 16.5px; line-height: 1.7; }
+  @media (max-width: 560px) { .faq { padding: 56px 0 24px; } .faq-item summary { font-size: 16.5px; padding: 16px 18px; } .faq-a { padding: 0 18px 20px; font-size: 15.5px; } }
+
+  /* ---------- Ro'yxatdan o'tish ---------- */
+  .final { background: var(--paper-2); padding: 40px 0 100px; position: relative; }
+  .reg-wrap { max-width: 1100px; }
+  .reg-head { display: flex; align-items: center; justify-content: space-between; gap: 20px 32px; flex-wrap: wrap; margin-bottom: 36px; }
+  .reg-title { text-align: left; margin: 0; }
+  .reg-title::after { margin-left: 0; }
+  .timer { display: flex; align-items: center; gap: 14px; color: var(--ink-70); font-size: 15px; font-weight: 600; }
+  .timer b {
+    min-width: 96px; text-align: center; font-family: var(--serif);
+    font-size: 28px; font-weight: 800; font-variant-numeric: tabular-nums;
+    color: var(--white); background: var(--ink); border-radius: 14px; padding: 6px 16px;
+    box-shadow: 0 8px 18px -8px rgba(14,154,176,.8);
+  }
+  .reg-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: stretch; }
+  .reg-steps { display: flex; flex-direction: column; gap: 16px; }
+  .step { background: var(--card); border: 1px solid rgba(13,27,46,.14); border-radius: 22px; padding: 22px 24px; font-size: 16.5px; box-shadow: 0 12px 28px -10px rgba(13,27,46,.28); }
+  .reg-steps .step { flex: 1; }
+  .step em { font-style: normal; font-weight: 800; color: var(--coral-dk); }
+  .pay { margin-top: 16px; background: var(--green); color: var(--white); border-radius: 18px; padding: 20px 22px; }
+  .pay-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+  .pay-num { font-family: var(--serif); font-size: clamp(18px, 5.2vw, 29px); font-weight: 700; white-space: nowrap; letter-spacing: .03em; font-variant-numeric: tabular-nums; }
+  .pay-name { margin-top: 10px; font-weight: 600; opacity: .8; }
+  .copy {
+    font: inherit; font-size: 14px; font-weight: 800; color: var(--ink);
+    background: var(--sun); border: 1px solid rgba(13,27,46,.14); border-radius: 12px; padding: 8px 16px; cursor: pointer;
+    box-shadow: 0 9px 28px -10px rgba(13,27,46,.28); transition: transform .15s, box-shadow .15s;
+  }
+  .copy:hover { transform: translate(-1px, -1px); box-shadow: 0 10px 28px -10px rgba(13,27,46,.28); }
+  .copy:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--ink); }
+  .copy.done { background: var(--white); }
+  .reg-form { display: flex; flex-direction: column; justify-content: center; gap: 22px; background: #fff; border: 1px solid rgba(13,27,46,.14); border-radius: 22px; padding: 28px 26px; box-shadow: 0 12px 28px -10px rgba(13,27,46,.28); }
+  .up-label { font-size: 17px; font-weight: 600; }
+  .cta-tg { width: 100%; min-width: 0; }
+  .tg-ico { flex: 0 0 52px; width: 52px; height: 52px; border-radius: 13px; display: grid; place-items: center; background: rgba(255,255,255,.2); }
+  .tg-arrow { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--white); color: var(--coral-dk); transition: transform .2s; }
+  .cta-tg:hover .tg-arrow { transform: translateX(4px); }
+  @media (max-width: 860px) { .reg-grid { grid-template-columns: minmax(0, 1fr); } .reg-head { flex-direction: column; align-items: flex-start; } }
+  @media (max-width: 560px) {
+    .final { padding: 32px 0 80px; }
+    .reg-form { padding: 22px 18px; }
+    .step { padding: 18px; font-size: 16px; }
+    .timer { flex-wrap: wrap; }
+    .cta-tg .cta-text { font-size: 16px; }
+  }
+
+  /* ---------- Mobil sticky CTA ---------- */
+  .sticky {
+    position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 50;
+    display: none; align-items: center; justify-content: space-between; gap: 12px;
+    background: var(--ink); border-radius: 18px; padding: 8px 8px 8px 20px; color: var(--paper);
+    box-shadow: 0 12px 30px -8px rgba(13,27,46,.6);
+    transform: translateY(140%); transition: transform .35s ease;
+  }
+  .sticky.show { transform: translateY(0); }
+  .sticky-price { font-family: var(--serif); font-weight: 800; font-size: 19px; white-space: nowrap; }
+  .sticky a { background: var(--coral); color: var(--white); text-decoration: none; font-weight: 800; border-radius: 12px; padding: 12px 20px; white-space: nowrap; }
+
+  /* ---------- Animatsiya ---------- */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .circle.playing, .circle.playing .circle-inner, .badge-icon { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+  @media (max-width: 560px) {
+    section { padding: 52px 0; }
+    .circle { flex-basis: 170px; }
+    .circle.expanded { flex-basis: 310px; }
+    .cta { min-width: 0; width: 100%; max-width: 360px; gap: 12px; }
+    .cta-icon { flex-basis: 46px; width: 46px; height: 46px; }
+    .cta-text { font-size: 16px; }
+    .sticky { display: flex; }
+    body { padding-bottom: 84px; }
+  }
+  @media (max-width: 380px) { .badge { font-size: 11.5px; } .cta-text { font-size: 15px; } }
+</style>
+</head>
+<body>
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="badge">
+      <span class="badge-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M12 2.5 1.5 20.5h21L12 2.5z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 9v5" stroke="#1559C7" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17.2" r="1.3" fill="#1559C7"/></svg></span>
+      <span class="badge-sep"></span>
+      <span class="badge-text">LOR shifokorlari <em>diqqatiga!</em></span>
+    </div>
+    <h1>Endoskopik Peshona Operatsiyalarini xavfsiz va asoratsiz o'tkazishni bu 5 qadam orqali o'rganing!</h1>
+    <div class="hero-visual"><img class="hero-img" src="images/doctor-skull.webp" alt="Mirkamol Nosirjonov"></div>
+    <a class="cta" href="#dars">
+      <span class="cta-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8.5a6.5 6.5 0 1 1 13 0c0 6-6 6-6 10a3.5 3.5 0 1 1-7 0"/><path d="M15 8.5a2.5 2.5 0 0 0-5 0v1a2 2 0 1 1 0 4"/></svg></span>
+      <span class="cta-text">Darslikni <em>olish</em></span>
+      <span class="cta-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M14 5l7 7-7 7"/></svg></span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ 2. NATIJALAR ============ -->
+<section class="results">
+  <div class="container">
+    <h2 class="reveal">Bu darsni ko'rganingizdan keyin qanday natija olasiz:</h2>
+    <div class="cards">
+      <article class="rcard reveal"><img class="rcard-img" src="images/cards/c1.webp" alt="01" loading="lazy">
+        <div class="rcard-body"><h3 class="rcard-title">MSKT orqali <em>o'roqsimon o'siq</em> birikishini aniqlaysiz</h3></div></article>
+      <article class="rcard reveal"><img class="rcard-img" src="images/cards/c2.webp" alt="02" loading="lazy">
+        <div class="rcard-body"><h3 class="rcard-title">Operatsiyaga tayyor <em>reja</em> bilan kirasiz</h3></div></article>
+      <article class="rcard reveal"><img class="rcard-img" src="images/cards/c3.webp" alt="03" loading="lazy">
+        <div class="rcard-body"><h3 class="rcard-title">Sinus frontalisning 5 ta asosiy drenaj yo'li <em>(UP-MT, UP-LP, UP-UPa, UP-BLEB, BLEB-BLMT)</em></h3></div></article>
+      <article class="rcard reveal"><img class="rcard-img" src="images/cards/c5.webp" alt="05" loading="lazy">
+        <div class="rcard-body"><h3 class="rcard-title">Ko'z kosasi va <em>miya asosi</em> atrofida xavfsiz ishlaysiz</h3></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="demo">
+  <div class="container demo-wrap">
+    <h2 class="reveal">Bonus dars</h2>
+    <div class="demo-grid">
+      <div class="macbook reveal" role="img" aria-label="Endoskopik frontotomiyada asosiy orientirlar darsi">
+        <div class="mb-lid">
+          <i class="mb-cam"></i>
+          <div class="mb-screen"><img src="images/lesson.webp" alt="Endoskopik frontotomiyada asosiy orientirlar"></div>
+        </div>
+        <div class="mb-base"></div>
+      </div>
+      <div class="demo-side reveal">
+        <h3>Darsda:</h3>
+        <ul class="demo-list">
+        <li><span class="chk"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span>Peshona bo‘shlig‘ini endoskopik operatsiya qilishda asosiy anatomik orientirlar</span></li>
+        <li><span class="chk"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span>Operatsiya vaqtida adashib qolmaslik uchun qaysi tuzilmalarga tayanish kerakligi</span></li>
+        <li><span class="chk"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span>KT tasvirida muhim nuqtalarni operatsiyadan oldin aniqlash</span></li>
+        <li><span class="chk"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span>Xavfli zonalar (miya asosi, g‘alvirsimon plastinka) va ularda ehtiyot bo‘lish qoidalari</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="story-title reveal">Nimaga bunaqa narx?</h2>
+    <div class="story reveal">
+      <p>Men ilm olish pul sababli to‘xtab qolishini xohlamayman.</p>
+      <p>Bu bilimlarni o‘zlashtirish uchun 5 dan ortiq davlatda malaka oshirdim. Yillar davomida vaqtimni va bir necha ming dollar pulimni sarflashga majbur bo‘ldim.</p>
+      <p>Qolaversa, bu 2 ta darsni hech kimga alohida sotmaganman. Ular faqatgina 5.000.000 so‘mlik dasturim tarkibida berilgan.</p>
+      <p class="hl">Lekin, siz hoziroq shu 2 ta darsni qo‘lga kiritishingiz mumkin</p>
+    </div>
+
+    <a class="now-link reveal" href="#dars">
+      <div class="now-label">bor-yo‘g‘i</div>
+      <span class="now-price">97.000 so‘m</span>
+    </a>
+  </div>
+</section>
+
+<section class="paths">
+  <div class="container">
+    <h2 class="reveal">97,000 evaziga nimalar olsa bo'ladi?</h2>
+    <div class="tri-grid">
+      <article class="tri tri-1 reveal">
+        <div class="tri-cut-img"><img src="images/cutout-kino.webp" alt="Kino chiptalari" loading="lazy"></div>
+        <p class="tri-cap">Kinoga 1 ta VIP chipta</p>
+      </article>
+
+      <article class="tri tri-2 reveal">
+        <div class="tri-cut-img"><img src="images/cutout-kfc.webp" alt="Qovurilgan tovuq va kartoshka fri" loading="lazy"></div>
+        <p class="tri-cap">KFC dan 2 ta sanders box</p>
+      </article>
+
+      <article class="tri tri-3 reveal">
+        <div class="tri-cut-img"><img class="tri-mac" src="images/macbook-lessons-v2.webp" alt="Kursdagi 2 ta foydali darslik" loading="lazy"></div>
+        <p class="tri-cap">Kursimdagi 2 ta foydali darslik</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. STORY END ============ -->
+<section class="stack" id="stack">
+  <div class="container">
+    <div class="story story-end reveal">
+      <p>Berayotgan darslarim sizga haqiqatan ham foyda berishiga va amaliyotda natija berishiga ishonaman.</p>
+      <p>Chunki maqsadim shunchaki dars o‘tish emas, balki sizga real ish jarayonida kerak bo‘ladigan bilimlarni berish.</p>
+      <p>Agar hali ham ikkilanayotgan bo‘lsangiz, quyida katta dasturimda o‘qigan hamkasblarimning fikrlarini qoldiraman.</p>
+      <p>O‘zingiz ko’rib chiqib, qaror qiling 👇</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. O'QUVCHILARIM NATIJALARI ============ -->
+<section class="students">
+  <div class="container">
+    <h2 class="reveal">Kurslarim o'quvchilari nima deydi?</h2>
+    <div class="circles reveal">
+      <div class="circle embed"><div class="circle-inner"><div class="kp" id="kp1" data-vid="qfQKvrNSEzueTaLCAGHpQj"></div></div></div>
+      <div class="circle embed"><div class="circle-inner"><div class="kp" id="kp2" data-vid="tDmW8p3ozuyESu1R64hZ9t"></div></div></div>
+      <div class="circle embed"><div class="circle-inner"><div class="kp" id="kp3" data-vid="tQ7PT96D2N1s6RtQjGoCCU"></div></div></div>
+      <div class="circle embed"><div class="circle-inner"><div class="kp" id="kp4" data-vid="dgNbTb2EfUgeAtgNMee12n"></div></div></div>
+      <div class="circle embed"><div class="circle-inner"><div class="kp" id="kp5" data-vid="2TLfJW3uGGcU2RogDJcpF1"></div></div></div>
+      <div class="circle embed"><div class="circle-inner"><div class="kp" id="kp6" data-vid="2UBbS1P8L4J9akqmCBUE2z"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="container">
+    <h2 class="reveal">Ko‘p beriladigan savollar</h2>
+    <div class="faq-list">
+      <details class="faq-item reveal" name="faq" open>
+        <summary><span>Bu darslar kimlar uchun?</span><i class="faq-ico" aria-hidden="true"></i></summary>
+        <div class="faq-a"><p>Darslar LOR shifokorlari, endoskopik peshona operatsiyalarini xavfsiz va asoratsiz o‘tkazishni o‘rganmoqchi bo‘lgan mutaxassislar uchun mo‘ljallangan. Ularda oddiy nazariya emas, amaliyotda kerak bo‘ladigan bilimlar berilgan.</p></div>
+      </details>
+      <details class="faq-item reveal" name="faq">
+        <summary><span>97 000 so‘mga aynan nimalar kiradi?</span><i class="faq-ico" aria-hidden="true"></i></summary>
+        <div class="faq-a"><p>Siz 2 ta amaliy darsni olasiz: “Endoskopik frontotomiyada asosiy orientirlar” va “Endoskopik Peshona Operatsiyalarida 5 ta Muhim Peshona Drenaj Sistemasi”. Ular orqali MSKT asosida o‘roqsimon o‘siq birikishini aniqlashni, operatsiyaga tayyor reja bilan kirishni va ko‘z kosasi hamda miya asosi atrofida xavfsiz ishlashni o‘rganasiz.</p></div>
+      </details>
+      <details class="faq-item reveal" name="faq">
+        <summary><span>Nega narx 5 000 000 emas, 97 000 so‘m?</span><i class="faq-ico" aria-hidden="true"></i></summary>
+        <div class="faq-a"><p>Bu 2 ta dars avval faqat narxi 5 000 000 so‘m bo‘lgan dasturim ichida, kurs ishtirokchilariga berilgan. Men bilim pul sababli to‘xtab qolishini xohlamayman, shuning uchun ularni siz uchun alohida, 97 000 so‘mga ochdim.</p></div>
+      </details>
+      <details class="faq-item reveal" name="faq">
+        <summary><span>To‘lovni qanday qilaman va darslarni qanday olaman?</span><i class="faq-ico" aria-hidden="true"></i></summary>
+        <div class="faq-a"><p>Sahifadagi karta raqamiga 97 000 so‘m o‘tkazasiz, to‘lov chekini rasmga olasiz va “Telegramga o‘tish” tugmasi orqali menejerga yuborasiz. Dars bir marta to‘lanadi, keyin ularni xohlagan vaqtda qayta ko‘rib foydalanishingiz mumkin.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="dars">
+  <div class="container reg-wrap">
+    <div class="reg-head reveal">
+      <h2 class="reg-title">Ro’yxatdan o’tish tartibi:</h2>
+      <div class="timer"><span>Ro'yxatdan o'tish uchun qolgan vaqt:</span><b id="timer" aria-live="off">15:00</b></div>
+    </div>
+
+    <div class="reg-grid">
+      <div class="reg-steps reveal">
+        <div class="step">
+          <p>1) Quyidagi karta raqamiga ushbu to’lovni amalga oshirasiz: <em>97,000 so'm</em></p>
+          <div class="pay">
+            <div class="pay-row">
+              <div class="pay-num" id="card-num">9860 2701 0289 3236</div>
+              <button type="button" class="copy" id="copy-btn">Nusxalash</button>
+            </div>
+            <div class="pay-name">Mirkamol Nosirjonov</div>
+          </div>
+        </div>
+        <div class="step"><p>2) To’lovingiz chekini rasmga olasiz</p></div>
+      </div>
+
+      <div class="reg-form reveal">
+        <p class="up-label">3) To'lov chekini pastdagi tugmani bosib, bizga yuborasiz.</p>
+        <a class="cta cta-tg" id="tg-link" href="https://t.me/mirkamol_menejer?text=Assalamu%20alaykum%21%0A%0AEndoskopik%20Peshona%20%7C%20Darslar%20uchun%20tolov%20chekini%20xozir%20tashlayman." target="_blank" rel="noopener">
+          <span class="tg-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M21.5 3.3 2.9 10.5c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.1.8.7.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.5.2 1.7-.8l3-14.3c.3-1.2-.4-1.7-1.3-1.3zM9 13.7l9.3-5.9c.4-.3.8-.1.5.2l-7.7 7-.3 3.2-1.8-4.5z"/></svg></span>
+          <span class="cta-text">Telegramga <em>o'tish</em></span>
+          <span class="tg-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M14 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mobil sticky CTA -->
+<div class="sticky" aria-hidden="true">
+  <span class="sticky-price">97.000 so'm</span>
+  <a href="#dars" tabindex="-1">Darslikni olish</a>
+</div>
+
+<script src="https://player.kinescope.io/latest/iframe.player.js"></script>
+<script>
+  // Kinescope krujoklar: bosilganda o'z joyida kattalashib o'ynaydi,
+  // pauza bosilsa yoki video tugasa joyiga qaytadi
+  (function () {
+    var circles = Array.prototype.slice.call(document.querySelectorAll('.circle.embed'));
+    var current = null;
+
+    circles.forEach(function (c) {
+      var box = c.querySelector('.kp');
+      c.player = null;
+      c.ready = (typeof Kinescope === 'undefined') ? Promise.resolve(null) :
+        Kinescope.IframePlayer.create(box.id, {
+          url: 'https://kinescope.io/' + box.dataset.vid,
+          size: { width: '100%', height: '100%' },
+          behaviour: { autoPlay: false, playsInline: true }
+        }).then(function (pl) {
+          c.player = pl;
+          var back = function () { if (c.classList.contains('expanded')) shrink(c); };
+          pl.on(pl.Events.Pause, function () {
+            setTimeout(function () { pl.isPaused().then(function (p) { if (p) back(); }); }, 300);
+          });
+          pl.on(pl.Events.Ended, back);
+          return pl;
+        }).catch(function () { return null; });
+    });
+
+    function shrink(c) {
+      c.classList.remove('expanded');
+      if (c.player) c.player.pause();
+      if (current === c) current = null;
+    }
+    function grow(c) {
+      if (current && current !== c) shrink(current);
+      current = c;
+      c.classList.add('expanded');
+      c.ready.then(function (pl) { if (pl) pl.play(); });
+      setTimeout(function () { c.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }); }, 650);
+    }
+
+    circles.forEach(function (c) {
+      c.addEventListener('click', function () { if (!c.classList.contains('expanded')) grow(c); });
+    });
+    document.addEventListener('click', function (e) {
+      if (current && !e.target.closest('.circle.embed')) shrink(current);
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && current) shrink(current); });
+  })();
+
+  // ---- Ro'yxatdan o'tish bloki ----
+  (function () {
+    // Taymer: 15:00 dan teskari sanaydi, sahifa qayta ochilganda ham davom etadi
+    var t = document.getElementById('timer'), KEY = 'tw_end', end;
+    try { end = parseInt(localStorage.getItem(KEY), 10); } catch (e) {}
+    if (!end || end < Date.now() - 60000) { end = Date.now() + 15 * 60 * 1000; try { localStorage.setItem(KEY, end); } catch (e) {} }
+    function tick() {
+      var left = Math.max(0, Math.round((end - Date.now()) / 1000));
+      var m = String(Math.floor(left / 60)).padStart(2, '0'), s = String(left % 60).padStart(2, '0');
+      t.textContent = m + ':' + s;
+    }
+    tick(); setInterval(tick, 1000);
+
+    // Karta raqamini nusxalash
+    var cb = document.getElementById('copy-btn');
+    cb.addEventListener('click', function () {
+      var num = document.getElementById('card-num').textContent.replace(/\s/g, '');
+      var done = function () { cb.textContent = 'Nusxalandi ✓'; cb.classList.add('done'); setTimeout(function () { cb.textContent = 'Nusxalash'; cb.classList.remove('done'); }, 1800); };
+      if (navigator.clipboard) navigator.clipboard.writeText(num).then(done, done);
+      else { var ta = document.createElement('textarea'); ta.value = num; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e) {} ta.remove(); done(); }
+    });
+  })();
+
+  // FAQ: javob silliq ochiladi va yopiladi
+  (function () {
+    var items = Array.prototype.slice.call(document.querySelectorAll('.faq-item'));
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var EASE = 'cubic-bezier(.22,1,.36,1)', DUR = 520;
+
+    function run(el, from, to, done) {
+      if (el._anim) el._anim.cancel();
+      if (reduce) { el.style.height = ''; return done && done(); }
+      el.style.overflow = 'hidden';
+      var a = el._anim = el.animate({ height: [from + 'px', to + 'px'] }, { duration: DUR, easing: EASE });
+      a.onfinish = a.oncancel = function () { el._anim = null; el.style.height = ''; el.style.overflow = ''; if (done) done(); };
+    }
+    function open(el) {
+      var from = el.offsetHeight;
+      el.open = true;
+      var to = el.scrollHeight;
+      el.classList.add('is-open');
+      run(el, from, to);
+    }
+    function close(el) {
+      var from = el.offsetHeight;
+      var to = el.querySelector('summary').offsetHeight;
+      el.classList.remove('is-open');
+      run(el, from, to, function () { el.open = false; });
+    }
+    items.forEach(function (el) {
+      if (el.open) el.classList.add('is-open');
+      el.querySelector('summary').addEventListener('click', function (e) {
+        e.preventDefault();
+        if (el.classList.contains('is-open')) { close(el); return; }
+        items.forEach(function (o) { if (o !== el && o.classList.contains('is-open')) close(o); });
+        open(el);
+      });
+    });
+  })();
+
+  // Bo'limlar ko'rinishga kirganda yumshoq paydo bo'lishi
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+    // Sticky CTA: hero'dan o'tgach chiqadi, ro'yxatdan o'tish joyida yashirinadi
+    var sticky = document.querySelector('.sticky');
+    var heroVisible = true, darsVisible = false;
+    var update = function () { sticky.classList.toggle('show', !heroVisible && !darsVisible); };
+    new IntersectionObserver(function (e) { heroVisible = e[0].isIntersecting; update(); })
+      .observe(document.querySelector('.hero .cta'));
+    new IntersectionObserver(function (e) { darsVisible = e[0].isIntersecting; update(); })
+      .observe(document.querySelector('#dars'));
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+  }
+</script>
+</body>
+</html>
